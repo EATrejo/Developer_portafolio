@@ -961,3 +961,37 @@ p {
     width: 90%;
   }
 }
+
+/* Añade estos estilos al final de tu archivo estilos.css */
+
+/* Mejoras para la alineación de proyectos */
+.mis-proyectos-nueva1, .mis-proyectos-nueva {
+    padding-top: 40px;
+}
+
+.proyectos-contenedor {
+    padding-top: 20px;
+}
+
+.tarjeta-proyecto {
+    margin-top: 20px;
+}
+
+/* Mejoras para el formulario de contacto */
+#contact-form {
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+/* Mejoras responsive para Tech Stack */
+@media (max-width: 900px) {
+    .container_tarjetas .card {
+        width: calc(50% - 40px) !important;
+    }
+}
+
+@media (max-width: 600px) {
+    .container_tarjetas .card {
+        width: calc(100% - 40px) !important;
+    }
+}
