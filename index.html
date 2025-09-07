@@ -16,6 +16,40 @@
       href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;700&display=swap"
       rel="stylesheet"
     />
+    <style>
+      /* Estilos adicionales para mejorar la sección backend */
+      .mis-proyectos-nueva {
+        padding-bottom: 80px; /* Aumentar padding inferior */
+      }
+      
+      .gestor-nominas .contenido-tarjeta {
+        padding-bottom: 30px; /* Espacio adicional para los botones */
+      }
+      
+      /* Ajustar el contenedor de tarjetas de tecnologías para 3x3 */
+      .container_tarjetas {
+        justify-content: center;
+        gap: 20px;
+      }
+      
+      .container_tarjetas .card {
+        width: calc(33.33% - 40px); /* 3 tarjetas por fila */
+        max-width: 250px;
+        margin: 10px;
+      }
+      
+      @media (max-width: 900px) {
+        .container_tarjetas .card {
+          width: calc(50% - 40px); /* 2 tarjetas por fila en tablets */
+        }
+      }
+      
+      @media (max-width: 600px) {
+        .container_tarjetas .card {
+          width: calc(100% - 40px); /* 1 tarjeta por fila en móviles */
+        }
+      }
+    </style>
   </head>
   <body>
     <header class="header" id="inicio">
@@ -265,6 +299,19 @@
             <img src="images/sql_ejercicios.png" alt="Django Logo">
 
               <h3>SQL</h3>
+          </div>
+          <!-- NUEVAS TARJETAS AÑADIDAS -->
+          <div class="card">
+            <img src="https://cdn.worldvectorlogo.com/logos/postman.svg" alt="Postman Logo">
+            <h3>Postman</h3>
+          </div>
+          <div class="card">
+            <img src="https://cdn.worldvectorlogo.com/logos/github-icon-1.svg" alt="GitHub Logo">
+            <h3>GitHub</h3>
+          </div>
+          <div class="card">
+            <img src="https://www.django-rest-framework.org/img/logo.png" alt="Django REST Framework Logo">
+            <h3>Django REST Framework</h3>
           </div>
         </div>
     
