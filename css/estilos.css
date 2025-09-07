@@ -933,3 +933,41 @@ p {
     width: 90%;
   }
 }
+/* Estilos específicos para la tarjeta del Gestor de Nóminas */
+.gestor-nominas {
+    margin-bottom: 60px !important; /* Margen inferior más grande */
+    position: relative;
+}
+
+/* Asegurar que los botones tengan el mismo tamaño que los demás */
+.gestor-nominas .boton-proyecto {
+    padding: 5px 10px !important;
+    font-size: 12px !important;
+    margin: 0 5px !important;
+}
+
+/* Asegurar que el contenedor de botones tenga el espaciado correcto */
+.gestor-nominas .botones-tarjeta {
+    margin-top: 15px;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+/* Para pantallas móviles */
+@media (max-width: 768px) {
+    .gestor-nominas {
+        margin-bottom: 40px !important;
+    }
+    
+    .gestor-nominas .botones-tarjeta {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+    
+    .gestor-nominas .boton-proyecto {
+        flex: 1;
+        min-width: 120px;
+        text-align: center;
+    }
+}
