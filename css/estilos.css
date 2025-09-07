@@ -27,11 +27,7 @@ header {
       rgba(161, 140, 209, 0.4) 0%,
       rgba(251, 194, 235, 0.4) 100%
     ),
-    url(../images/WhatsApp\ Image\ 2025-06-03\ at\ 5.38.20\ PM.jpeg);
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-attachment: fixed;
-  background-position: center;
+
 }
 
 .head {
