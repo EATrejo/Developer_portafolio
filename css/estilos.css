@@ -168,17 +168,20 @@ img, video {
   margin-top: 40px;
 }
 
+/* MEJORAS EN LAS TARJETAS DE PROYECTO */
 .tarjeta-proyecto {
   display: flex;
   flex-direction: column; /* Disposición vertical */
   width: 100%; /* Asegura que las tarjetas ocupen el 100% del ancho disponible */
-  height: 14cm; /* Altura de 14cm en pantallas grandes */
+  height: auto; /* Cambiado a auto para mejor responsividad */
+  min-height: 500px; /* Altura mínima consistente */
   background-color: #fff;
   border-radius: 10px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  padding: 10px; /* Añadir padding interior a las tarjetas */
+  padding: 15px; /* Aumentado el padding interior */
   overflow: hidden; /* Asegurarse de que nada sobresalga de la tarjeta */
   transition: transform 0.3s; /* Efecto suave al transformar */
+  margin-bottom: 30px; /* Margen inferior consistente */
 }
 
 .tarjeta-proyecto:hover {
@@ -187,26 +190,29 @@ img, video {
 
 .tarjeta-proyecto img {
   width: 100%; /* Imagen ocupa el total del ancho de la tarjeta */
-  height: 60%; /* Mantiene una altura relativa de la imagen */
+  height: 200px; /* Altura fija para imágenes */
+  object-fit: cover; /* Asegura que la imagen se recorte adecuadamente */
   border-radius: 10px; /* Mantener esquinas redondeadas */
   transition: transform 0.3s; /* Efecto suave al transformar la imagen */
 }
 
 .contenido-tarjeta {
-  padding: 10px;
+  padding: 15px;
   display: flex;
   flex-direction: column; /* Para apilar los elementos verticalmente */
-  justify-content: flex-start; /* Alinear el contenido desde el inicio */
+  flex-grow: 1; /* Ocupa todo el espacio disponible */
+  justify-content: space-between; /* Distribuye el espacio entre elementos */
 }
 
 h4 {
   text-align: center; /* Céntralo sobre el contenido */
   font-size: 16px; /* Tamaño de fuente del título */
-  margin: 5px 0; /* Espacio suave alrededor del título */
+  margin: 10px 0; /* Espacio suave alrededor del título */
 }
 
 p {
   font-size: 14px; /* Tamaño del párrafo normal */
+  margin-bottom: 15px; /* Espacio inferior */
 }
 
 .etiquetas {
@@ -214,7 +220,7 @@ p {
   display: flex; /* Usar display flex para alinear etiquetas */
   flex-wrap: wrap; /* Permite que las etiquetas se muevan a la siguiente línea si no hay espacio */
   justify-content: center; /* Centrarlas en el contenedor */
-  margin-bottom: 10px; /* Espacio inferior para separarlas de los botones */
+  margin-bottom: 15px; /* Espacio inferior para separarlas de los botones */
 }
 
 .etiqueta {
@@ -226,26 +232,36 @@ p {
   font-size: 12px; /* Tamaño de la fuente de la etiqueta */
 }
 
+/* MEJORAS EN LOS BOTONES */
 .botones-tarjeta {
-  margin-top: 10px;
-  display: flex; /* Usar display flex para alinear botones */
-  justify-content: center; /* Centrar los botones */
+  margin-top: auto; /* Empuja los botones hacia la parte inferior */
+  display: flex;
+  justify-content: center;
+  gap: 10px; /* Espacio entre botones */
+  padding-top: 15px;
 }
 
 .boton-proyecto {
   display: inline-block;
   background-color: #007bff;
   color: white;
-  padding: 5px 10px; /* Tamaño de los botones */
-  font-size: 12px; /* Tamaño de fuente del botón */
+  padding: 8px 16px; /* Tamaño consistente de los botones */
+  font-size: 14px; /* Tamaño de fuente del botón */
   border-radius: 20px;
-  margin: 0 5px; /* Espacio entre los botones */
   text-decoration: none;
   transition: background-color 0.3s;
+  flex: 1;
+  max-width: 120px;
+  text-align: center;
 }
 
 .boton-proyecto:hover {
   background-color: #0056b3; /* Color de fondo al pasar el mouse */
+}
+
+/* Margen adicional para la última tarjeta (Gestor de Nóminas) */
+.proyectos-contenedor .tarjeta-proyecto:last-child {
+  margin-bottom: 60px;
 }
 
 /* Estilos Responsivos */
@@ -256,14 +272,26 @@ p {
 
   .tarjeta-proyecto {
       height: auto; /* Ajustar altura a auto en móviles */
+      min-height: 450px; /* Altura mínima reducida para móviles */
   }
 
   .tarjeta-proyecto img {
-      height: auto; /* Asegurarse de que la imagen mantenga su proporción */
+      height: 150px; /* Altura reducida para imágenes en móviles */
   }
 
   .contenido-tarjeta p {
       font-size: 12px; /* Ajustar tamaño de fuente del párrafo para pantallas pequeñas */
+  }
+
+  .botones-tarjeta {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .boton-proyecto {
+    flex: 1;
+    min-width: 120px;
+    text-align: center;
   }
 }
 
@@ -429,7 +457,7 @@ p {
     display: none; /* Oculta la información inicialmente */
     position: absolute; /* Posición absoluta para mostrar al lado del ícono */
     top: 50%; /* Posiciona verticalmente a la mitad */
-    left: 100%; /* Mueve a la derecha del ícono */
+    left: 100%; /* Move a la derecha del ícono */
     transform: translateY(-50%); /* Centra verticalmente respecto al ícono */
     background-color: rgba(0, 0, 0, 0.8); /* Fondo negro para la información */
     color: white; /* Color del texto de la información */
@@ -932,42 +960,4 @@ p {
   .contact-us {
     width: 90%;
   }
-}
-/* Estilos específicos para la tarjeta del Gestor de Nóminas */
-.gestor-nominas {
-    margin-bottom: 60px !important; /* Margen inferior más grande */
-    position: relative;
-}
-
-/* Asegurar que los botones tengan el mismo tamaño que los demás */
-.gestor-nominas .boton-proyecto {
-    padding: 5px 10px !important;
-    font-size: 12px !important;
-    margin: 0 5px !important;
-}
-
-/* Asegurar que el contenedor de botones tenga el espaciado correcto */
-.gestor-nominas .botones-tarjeta {
-    margin-top: 15px;
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-}
-
-/* Para pantallas móviles */
-@media (max-width: 768px) {
-    .gestor-nominas {
-        margin-bottom: 40px !important;
-    }
-    
-    .gestor-nominas .botones-tarjeta {
-        flex-direction: row;
-        flex-wrap: wrap;
-    }
-    
-    .gestor-nominas .boton-proyecto {
-        flex: 1;
-        min-width: 120px;
-        text-align: center;
-    }
 }
