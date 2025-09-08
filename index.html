@@ -1032,5 +1032,59 @@
     <script src="js/lightbox.js"></script>
     <script src="js/slider.js"></script>
     <script src="js/brain.js"></script>
+    <script>
+    // Eliminación forzada de la imagen no deseada
+    document.addEventListener('DOMContentLoaded', function() {
+        // Función para eliminar la imagen no deseada
+        function eliminarImagenNoDeseada() {
+            const imagenesNoDeseadas = document.querySelectorAll('img.agregar-imagen');
+            imagenesNoDeseadas.forEach(img => {
+                if (img.src.includes('bliblioteca.jpg') || img.classList.contains('agregar-imagen')) {
+                    img.remove();
+                    console.log('Imagen no deseada eliminada');
+                }
+            });
+        }
+        
+        // Ejecutar inmediatamente
+        eliminarImagenNoDeseada();
+        
+        // Ejecutar después de un breve delay por si se carga dinámicamente
+        setTimeout(eliminarImagenNoDeseada, 100);
+        setTimeout(eliminarImagenNoDeseada, 500);
+        
+        // Observar cambios en el DOM
+        const observer = new MutationObserver(function(mutations) {
+            mutations.forEach(function(mutation) {
+                if (mutation.addedNodes.length) {
+                    eliminarImagenNoDeseada();
+                }
+            });
+        });
+        
+        observer.observe(document.body, { childList: true, subtree: true });
+    });
+
+    // Prevenir que cualquier script cargue esta imagen
+    const originalCreateElement = document.createElement;
+    document.createElement = function(tagName) {
+        const element = originalCreateElement.call(this, tagName);
+        if (tagName.toLowerCase() === 'img') {
+            Object.defineProperty(element, 'src', {
+                set: function(value) {
+                    if (value.includes('bliblioteca.jpg')) {
+                        console.log('Intento de carga de imagen no deseada bloqueada:', value);
+                        return; // No establecer el valor
+                    }
+                    element.setAttribute('src', value);
+                },
+                get: function() {
+                    return element.getAttribute('src');
+                }
+            });
+        }
+        return element;
+    };
+    </script>
   </body>
 </html>
