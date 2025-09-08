@@ -948,3 +948,19 @@ p {
     width: 90%;
   }
 }
+.imagen-lightbox {
+  width: 70%;
+  transform: scale(0);
+  transition: transform 0.3s ease-in-out;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
+}
+
+.imagen-lightbox.showImage {
+  transform: scale(1);
+}
+
+/* Asegúrate de que la imagen no deseada no sea visible */
+.agregar-imagen {
+  display: none !important;
+}
