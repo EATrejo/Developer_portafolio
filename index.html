@@ -84,35 +84,38 @@
         border: 1px solid #f5c6cb;
       }
       
-      /* Mejoras para la sección de backend con cerebro y rayos */
+      /* SOLUCIÓN 1: Mejoras para la sección de backend con cerebro y rayos */
       .back-end-container {
         position: relative;
         width: 100%;
         display: flex;
         flex-direction: column;
         align-items: center;
-        padding: 40px 0;
+        padding: 20px 0 0 0; /* Reducir padding superior */
+        margin-top: -20px; /* Mover más arriba */
       }
       
       .back-end-title {
         color: white;
         font-size: 38px;
         text-align: center;
-        z-index: 10;
+        z-index: 20; /* Aumentar z-index para estar por encima */
         position: relative;
-        margin: 0 0 40px 0;
-        padding: 20px;
+        margin: 0 0 10px 0; /* Reducir margen inferior */
+        padding: 15px;
         text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
+        transform: translateY(-15px); /* Mover más arriba */
       }
       
       .brain-container {
         position: relative;
         width: 100%;
-        height: 300px;
+        height: 250px; /* Reducir altura */
         display: flex;
         justify-content: center;
         align-items: center;
-        margin-bottom: 40px;
+        margin-top: -30px; /* Mover más arriba */
+        margin-bottom: 20px; /* Reducir margen inferior */
       }
       
       .lightning {
@@ -182,11 +185,66 @@
         }
       }
       
-      /* Mejoras de texto y responsividad */
+      /* SOLUCIÓN 2: Ocultar imagen de libros si aparece */
+      img[src*="bibliotecas"], img[src*="libros"] {
+        display: none !important;
+      }
+      
+      /* SOLUCIÓN 4: Estilos para uniformar contenedores de proyectos */
+      .proyectos-contenedor {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 30px;
+        padding: 20px;
+      }
+      
+      .tarjeta-proyecto {
+        width: 100%;
+        max-width: 500px;
+        background: white;
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease;
+        display: flex;
+        flex-direction: column;
+      }
+      
+      .tarjeta-proyecto:hover {
+        transform: translateY(-5px);
+      }
+      
+      .tarjeta-proyecto img,
+      .tarjeta-proyecto video {
+        width: 100%;
+        height: 250px; /* Altura fija para todas las imágenes */
+        object-fit: cover; /* Asegura que la imagen cubra el espacio sin distorsionarse */
+        object-position: center top; /* Para la imagen de XopStore, enfoca en la parte superior */
+      }
+      
+      .contenido-tarjeta {
+        padding: 20px;
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
+      }
+      
       .contenido-tarjeta p {
+        flex-grow: 1;
+        margin-bottom: 15px;
         text-align: justify;
         text-justify: inter-word;
         line-height: 1.6;
+      }
+      
+      /* Ajuste específico para XopStore a 768px */
+      @media (max-width: 768px) {
+        .tarjeta-proyecto img,
+        .tarjeta-proyecto video {
+          height: 220px;
+          object-position: center 25%; /* Ajusta para que no se corte la cabeza */
+        }
       }
       
       /* Mejoras para el formulario de contacto */
@@ -610,8 +668,8 @@
               </a>
           </div>
           
-          <!-- Formulario de contacto modificado para usar Formspree -->
-          <form id="contact-form" action="https://formspree.io/f/xqadwydo" method="POST">
+          <!-- SOLUCIÓN 3: Formulario de contacto - Cambia la acción según necesites -->
+          <form id="contact-form" action="http://localhost:5000/enviar" method="POST">
               <input type="text" name="name" placeholder="Name" required>
               <input type="email" name="email" placeholder="Email" required>
               <textarea name="message" placeholder="Message" required></textarea>
@@ -650,7 +708,7 @@
             });
         }
 
-        // Manejo del formulario con Formspree
+        // Manejo del formulario con tu servidor personalizado
         document.getElementById('contact-form').addEventListener('submit', async function (e) {
             e.preventDefault();
             
@@ -679,20 +737,25 @@
                 });
                 
                 if (response.ok) {
-                    // Crear mensaje de éxito
-                    const alert = document.createElement('div');
-                    alert.className = 'form-alert success';
-                    alert.textContent = 'Mensaje enviado exitosamente. ¡Gracias por contactarme!';
-                    
-                    // Insertar antes del formulario
-                    form.parentNode.insertBefore(alert, form);
-                    
-                    form.reset();
-                    // Auto-eliminar mensaje después de 5 segundos
-                    setTimeout(() => alert.remove(), 5000);
-                } else {
                     const data = await response.json();
-                    throw new Error(data.error || 'Error en la respuesta del servidor');
+                    
+                    if (data.success) {
+                        // Crear mensaje de éxito
+                        const alert = document.createElement('div');
+                        alert.className = 'form-alert success';
+                        alert.textContent = data.message;
+                        
+                        // Insertar antes del formulario
+                        form.parentNode.insertBefore(alert, form);
+                        
+                        form.reset();
+                        // Auto-eliminar mensaje después de 5 segundos
+                        setTimeout(() => alert.remove(), 5000);
+                    } else {
+                        throw new Error(data.message || 'Error en la respuesta del servidor');
+                    }
+                } else {
+                    throw new Error('Error en la respuesta del servidor');
                 }
                 
             } catch (error) {
