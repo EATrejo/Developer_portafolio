@@ -1033,58 +1033,87 @@
     <script src="js/slider.js"></script>
     <script src="js/brain.js"></script>
     <script>
-    // Eliminación forzada de la imagen no deseada
-    document.addEventListener('DOMContentLoaded', function() {
-        // Función para eliminar la imagen no deseada
-        function eliminarImagenNoDeseada() {
-            const imagenesNoDeseadas = document.querySelectorAll('img.agregar-imagen');
-            imagenesNoDeseadas.forEach(img => {
-                if (img.src.includes('bliblioteca.jpg') || img.classList.contains('agregar-imagen')) {
+    // SOLUCIÓN DEFINITIVA - Eliminación completa de imagen no deseada
+    (function() {
+        'use strict';
+        
+        // Eliminar cualquier elemento no deseado
+        function eliminarElementosNoDeseados() {
+            // Por clase
+            const elementosPorClase = document.querySelectorAll('.agregar-imagen');
+            elementosPorClase.forEach(el => {
+                console.log('Eliminando elemento por clase:', el);
+                el.remove();
+            });
+            
+            // Por src
+            const todasLasImagenes = document.querySelectorAll('img');
+            todasLasImagenes.forEach(img => {
+                if (img.src.includes('bliblioteca.jpg')) {
+                    console.log('Eliminando imagen por src:', img);
                     img.remove();
-                    console.log('Imagen no deseada eliminada');
+                }
+            });
+            
+            // Por atributos (en caso de que sea un div con estilo de fondo)
+            const todosLosElementos = document.querySelectorAll('*');
+            todosLosElementos.forEach(el => {
+                if (el.style.backgroundImage && el.style.backgroundImage.includes('bliblioteca.jpg')) {
+                    console.log('Eliminando elemento con background no deseado:', el);
+                    el.remove();
                 }
             });
         }
         
         // Ejecutar inmediatamente
-        eliminarImagenNoDeseada();
+        eliminarElementosNoDeseados();
         
-        // Ejecutar después de un breve delay por si se carga dinámicamente
-        setTimeout(eliminarImagenNoDeseada, 100);
-        setTimeout(eliminarImagenNoDeseada, 500);
+        // Ejecutar repetidamente durante la carga
+        let maxEjecuciones = 20;
+        let ejecuciones = 0;
+        
+        const interval = setInterval(() => {
+            eliminarElementosNoDeseados();
+            ejecuciones++;
+            
+            if (ejecuciones >= maxEjecuciones) {
+                clearInterval(interval);
+            }
+        }, 100);
         
         // Observar cambios en el DOM
-        const observer = new MutationObserver(function(mutations) {
-            mutations.forEach(function(mutation) {
+        const observer = new MutationObserver((mutations) => {
+            mutations.forEach((mutation) => {
                 if (mutation.addedNodes.length) {
-                    eliminarImagenNoDeseada();
+                    eliminarElementosNoDeseados();
                 }
             });
         });
         
-        observer.observe(document.body, { childList: true, subtree: true });
-    });
-
-    // Prevenir que cualquier script cargue esta imagen
-    const originalCreateElement = document.createElement;
-    document.createElement = function(tagName) {
-        const element = originalCreateElement.call(this, tagName);
-        if (tagName.toLowerCase() === 'img') {
-            Object.defineProperty(element, 'src', {
-                set: function(value) {
-                    if (value.includes('bliblioteca.jpg')) {
-                        console.log('Intento de carga de imagen no deseada bloqueada:', value);
-                        return; // No establecer el valor
+        observer.observe(document.body, {
+            childList: true,
+            subtree: true
+        });
+        
+        // Sobrescribir createElement para prevenir la creación del elemento
+        const originalCreateElement = document.createElement;
+        document.createElement = function() {
+            const element = originalCreateElement.apply(this, arguments);
+            
+            if (arguments[0] === 'img') {
+                const originalSetAttribute = element.setAttribute;
+                element.setAttribute = function(name, value) {
+                    if (name === 'src' && value.includes('bliblioteca.jpg')) {
+                        console.log('Bloqueado intento de crear imagen no deseada');
+                        return; // No establecer el atributo
                     }
-                    element.setAttribute('src', value);
-                },
-                get: function() {
-                    return element.getAttribute('src');
-                }
-            });
-        }
-        return element;
-    };
+                    originalSetAttribute.call(this, name, value);
+                };
+            }
+            
+            return element;
+        };
+    })();
     </script>
   </body>
 </html>

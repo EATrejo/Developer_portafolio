@@ -975,3 +975,45 @@ p {
     position: absolute !important;
     left: -9999px !important;
 }
+
+/* Reglas CSS de respaldo - Agregar al final de estilos.css */
+.agregar-imagen {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+    width: 0 !important;
+    height: 0 !important;
+    position: absolute !important;
+    left: -9999px !important;
+    pointer-events: none !important;
+}
+
+/* Limpiar cualquier posible contenedor lightbox antiguo */
+.imagen-light:not(:empty) {
+    display: none !important;
+}
+
+.imagen-light {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Estilos para el nuevo lightbox */
+.imagen-lightbox {
+    width: 70%;
+    transform: scale(0);
+    transition: transform 0.3s ease-in-out;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
+    max-height: 80vh;
+    object-fit: contain;
+}
+
+.imagen-lightbox.showImage {
+    transform: scale(1);
+}
+
+.show {
+    transform: translate(0) !important;
+}
