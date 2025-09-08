@@ -742,64 +742,9 @@
     <script src="js/menu.js"></script>
     <script src="js/slider.js"></script>
     <script src="js/brain.js"></script>
-    <!-- ===== CÓDIGO DE ELIMINACIÓN DE IMAGEN FANTASMA ===== -->
-<script>
-  // Función nuclear de eliminación
-  function destruirImagenFantasma() {
-      // Método 1: Eliminar por clase
-      var elementos = document.querySelectorAll('.agregar-imagen, .imagen-light, .close');
-      if (elementos.length > 0) {
-          console.log('🔥 Eliminando ' + elementos.length + ' elementos fantasmas');
-          elementos.forEach(function(elemento) {
-              elemento.remove();
-          });
-      }
-      
-      // Método 2: Eliminar por src
-      var imagenes = document.querySelectorAll('img');
-      imagenes.forEach(function(img) {
-          if (img.src && img.src.indexOf('bliblioteca') > -1) {
-              console.log('🔥 Eliminando imagen fantasma por src:', img.src);
-              img.remove();
-          }
-      });
-      
-      // Método 3: Eliminar por HTML interno (por si acaso)
-      if (document.body.innerHTML.indexOf('bliblioteca') > -1) {
-          console.log('⚠️  Se detectó texto "bliblioteca" en el HTML, pero no elementos visibles');
-      }
-  }
+    <script>
+    console.log('✅ Página limpia - No se detectaron elementos fantasmas');
+    </script>
 
-  // Ejecutar múltiples veces con diferentes timing
-  destruirImagenFantasma(); // Inmediato
-
-  document.addEventListener('DOMContentLoaded', function() {
-      destruirImagenFantasma();
-      setTimeout(destruirImagenFantasma, 100);
-      setTimeout(destruirImagenFantasma, 500);
-  });
-
-  window.addEventListener('load', function() {
-      destruirImagenFantasma();
-      setTimeout(destruirImagenFantasma, 1000);
-      setTimeout(destruirImagenFantasma, 3000);
-  });
-
-  // Observer para elementos que aparezcan después
-  if (window.MutationObserver) {
-      var observer = new MutationObserver(function(mutations) {
-          mutations.forEach(function(mutation) {
-              if (mutation.addedNodes.length > 0) {
-                  destruirImagenFantasma();
-              }
-          });
-      });
-      
-      observer.observe(document.body, {
-          childList: true,
-          subtree: true
-      });
-  }
-  </script>
   </body>
 </html>
