@@ -1,0 +1,1003 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Open Sans", sans-serif;
+}
+
+.contenedor {
+  width: 90%;
+  max-width: 1200px;
+  overflow: hidden;
+  margin: auto;
+  padding: 60px 0;
+}
+
+
+.head {
+  text-align: center;
+  padding: 0;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  color: #fff;
+}
+
+.hamburger {
+  position: fixed;
+  top: 30px;
+  right: 30px;
+  background: #fff;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  border-radius: 10px;
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.5);
+  z-index: 999;
+}
+
+.menu-navegacion {
+  position: fixed;
+  top: 0;
+  right: 0%;
+  width: 30vw;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.65); /* Fondo negro translúcido */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  transition: transform 0.3s ease-in-out;
+  transform: translate(110%);
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.5);
+  z-index: 977;
+}
+
+.spread {
+  transform: translate(0);
+}
+
+.menu-navegacion a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.titulo {
+  font-size: 60px;
+  margin-bottom: 15px;
+}
+
+.copy {
+  font-weight: 300;
+  font-size: 25px;
+}
+
+/* Slider */
+.slider {
+  max-width: 800px;
+  margin: 20px auto; /* Margen superior e inferior de 20px */
+  position: relative;
+  overflow: hidden;
+  border-radius: 15px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.slides {
+  display: flex;
+  transition: transform 0.5s ease;
+}
+
+.slide {
+  min-width: 100%;
+  box-sizing: border-box;
+}
+
+img, video {
+  width: 100%; /* Ajusta la imagen y video al tamaño del slider */
+  border-radius: 15px;
+}
+
+.video {
+ display: block;
+  margin: 0 auto; /* Centrar video */
+}
+
+.nav-buttons {
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  transform: translateY(-50%);
+}
+
+.prev, .next {
+  background-color: rgba(255, 255, 255, 0.8);
+  border: none;
+  border-radius: 50%;
+  padding: 10px;
+  cursor: pointer;
+  font-size: 18px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  transition: background-color 0.3s;
+}
+
+.prev:hover, .next:hover {
+  background-color: rgba(255, 255, 255, 1);
+}
+
+.mis-proyectos-nueva {
+  padding: 20px;
+  text-align: center;
+}
+
+.mis-proyectos-nueva h2 {
+  margin: 50px 0; /* Margen superior e inferior de 50px */
+  padding: 0; /* Puedes ajustar el padding si lo deseas */
+}
+
+.proyectos-contenedor {
+  display: flex; /* Usar flex para el diseño */
+  flex-wrap: wrap; /* Permitir que las tarjetas se distribuyan en filas */
+  justify-content: center; /* Centrar las tarjetas */
+  gap: 20px; /* Espaciado entre las tarjetas */
+  margin: 0 auto; /* Centrar el contenedor */
+  max-width: calc(13cm * 3 + 20px); /* Ancho proporcional y centrado */
+  margin-top: 40px;
+}
+
+/* MEJORAS EN LAS TARJETAS DE PROYECTO */
+.tarjeta-proyecto {
+  display: flex;
+  flex-direction: column; /* Disposición vertical */
+  width: 100%; /* Asegura que las tarjetas ocupen el 100% del ancho disponible */
+  height: auto; /* Cambiado a auto para mejor responsividad */
+  min-height: 500px; /* Altura mínima consistente */
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  padding: 15px; /* Aumentado el padding interior */
+  overflow: hidden; /* Asegurarse de que nada sobresalga de la tarjeta */
+  transition: transform 0.3s; /* Efecto suave al transformar */
+  margin-bottom: 30px; /* Margen inferior consistente */
+}
+
+.tarjeta-proyecto:hover {
+  transform: scale(1.05); /* Aumentar el tamaño de la tarjeta al pasar el mouse */
+}
+
+.tarjeta-proyecto img {
+  width: 100%; /* Imagen ocupa el total del ancho de la tarjeta */
+  height: 200px; /* Altura fija para imágenes */
+  object-fit: cover; /* Asegura que la imagen se recorte adecuadamente */
+  border-radius: 10px; /* Mantener esquinas redondeadas */
+  transition: transform 0.3s; /* Efecto suave al transformar la imagen */
+}
+
+.contenido-tarjeta {
+  padding: 15px;
+  display: flex;
+  flex-direction: column; /* Para apilar los elementos verticalmente */
+  flex-grow: 1; /* Ocupa todo el espacio disponible */
+  justify-content: space-between; /* Distribuye el espacio entre elementos */
+}
+
+h4 {
+  text-align: center; /* Céntralo sobre el contenido */
+  font-size: 16px; /* Tamaño de fuente del título */
+  margin: 10px 0; /* Espacio suave alrededor del título */
+}
+
+p {
+  font-size: 14px; /* Tamaño del párrafo normal */
+  margin-bottom: 15px; /* Espacio inferior */
+}
+
+.etiquetas {
+  margin-top: 10px;
+  display: flex; /* Usar display flex para alinear etiquetas */
+  flex-wrap: wrap; /* Permite que las etiquetas se muevan a la siguiente línea si no hay espacio */
+  justify-content: center; /* Centrarlas en el contenedor */
+  margin-bottom: 15px; /* Espacio inferior para separarlas de los botones */
+}
+
+.etiqueta {
+  display: inline-block;
+  background-color: #e0e0e0;
+  border-radius: 20px;
+  padding: 5px 10px;
+  margin: 5px; /* Margen entre etiquetas */
+  font-size: 12px; /* Tamaño de la fuente de la etiqueta */
+}
+
+/* MEJORAS EN LOS BOTONES */
+.botones-tarjeta {
+  margin-top: auto; /* Empuja los botones hacia la parte inferior */
+  display: flex;
+  justify-content: center;
+  gap: 10px; /* Espacio entre botones */
+  padding-top: 15px;
+}
+
+.boton-proyecto {
+  display: inline-block;
+  background-color: #007bff;
+  color: white;
+  padding: 8px 16px; /* Tamaño consistente de los botones */
+  font-size: 14px; /* Tamaño de fuente del botón */
+  border-radius: 20px;
+  text-decoration: none;
+  transition: background-color 0.3s;
+  flex: 1;
+  max-width: 120px;
+  text-align: center;
+}
+
+.boton-proyecto:hover {
+  background-color: #0056b3; /* Color de fondo al pasar el mouse */
+}
+
+/* Margen adicional para la última tarjeta (Gestor de Nóminas) */
+.proyectos-contenedor .tarjeta-proyecto:last-child {
+  margin-bottom: 60px;
+}
+
+/* Estilos Responsivos */
+@media (max-width: 500px) {
+  .proyectos-contenedor {
+      flex-direction: column; /* Una sola columna en pantallas pequeñas */
+  }
+
+  .tarjeta-proyecto {
+      height: auto; /* Ajustar altura a auto en móviles */
+      min-height: 450px; /* Altura mínima reducida para móviles */
+  }
+
+  .tarjeta-proyecto img {
+      height: 150px; /* Altura reducida para imágenes en móviles */
+  }
+
+  .contenido-tarjeta p {
+      font-size: 12px; /* Ajustar tamaño de fuente del párrafo para pantallas pequeñas */
+  }
+
+  .botones-tarjeta {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .boton-proyecto {
+    flex: 1;
+    min-width: 120px;
+    text-align: center;
+  }
+}
+
+@media (min-width: 501px) and (max-width: 800px) {
+  .tarjeta-proyecto {
+      width: calc(50% - 20px); /* Dos columnas en pantallas medianas */
+  }
+}
+
+@media (min-width: 801px) {
+  .tarjeta-proyecto {
+      width: calc(33.33% - 20px); /* Tres columnas en pantallas grandes */
+  }
+}
+
+/* CEREBRO HUMANO */
+.mis-proyectos-nueva {
+    position: relative;
+    width: 100%;
+    padding: 100px 0; /* Espaciado superior e inferior */
+    background-color: rgba(0, 0, 0, 0.65); /* Fondo negro translúcido */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centra el contenido horizontalmente */
+    overflow: hidden; /* Evita desbordamiento */
+}
+
+.back-end-title {
+    color: white;
+    font-size: 38px;
+    text-align: center;
+    z-index: 3; /* Mantener el título en frente */
+    position: relative;
+    margin: 35px 0 0; /* Añade 15px de margen superior para moverlo hacia abajo */
+    transform: translateY(-20px); /* Este valor lo puedes ajustar o eliminar si lo prefieres */
+    text-shadow: 0 3px 8px rgba(0, 0, 0, 0.8), 0 6px 15px rgba(0, 0, 0, 0.5);
+}
+
+.lightning {
+    position: absolute;
+    top: 15vh; /* Mantener una altura proporcional */
+    left: 50%;
+    transform: translate(-50%, -50%); /* Centrado horizontal y vertical */
+    width: 60%; /* Tamaño ajustable */
+    max-width: 320px; /* Establecer un ancho máximo */
+    z-index: 0; /* Se posiciona entre el cerebro y el título */
+    animation: flash 1.2s infinite alternate, breathe 10s infinite; /* Aplicar ambas animaciones */
+}
+.lightning2 {
+    position: absolute;
+    top: 9vh; /* Mantener una altura proporcional */
+    left: 50%;
+    transform: translate(-50%, -50%); /* Centrado horizontal y vertical */
+    width: 60%; /* Tamaño ajustable */
+    max-width: 320px; /* Establecer un ancho máximo */
+    z-index: 2; /* Se posiciona entre el cerebro y el título */
+    animation: flash 1.5s infinite alternate, breathe 10s infinite; /* Aplicar ambas animaciones */
+}
+.lightning3 {
+    position: absolute;
+    top: 9vh; /* Mantener una altura proporcional */
+    left: 50%;
+    transform: translate(-50%, -50%); /* Centrado horizontal y vertical */
+    width: 60%; /* Tamaño ajustable */
+    max-width: 320px; /* Establecer un ancho máximo */
+    z-index: 4; /* Se posiciona entre el cerebro y el título */
+    animation: flash 2.5s infinite alternate, breathe 10s infinite; /* Aplicar ambas animaciones */
+}
+
+
+@keyframes flash {
+    0% {
+        opacity: 0; /* Comienza completamente invisible */
+    }
+    50% {
+        opacity: 1; /* Totalmente visible */
+        filter: brightness(2); /* Aumentar el brillo al 200% en el punto máximo */
+    }
+     100% {
+        opacity: 0; /* Desaparece al final */
+    }
+}
+
+@keyframes breathe {
+    0%, 100% {
+        transform: translate(-50%, -50%) scale(1); /* Sin desplazamiento ni escala */
+    }
+    50% {
+        transform: translate(-50%, -50%) scale(1.1); /* Aumenta ligeramente el tamaño para el efecto de respiración */
+    }
+}
+
+.mis-proyectos-nueva::before {
+    content: "";
+    position: absolute;
+    top: 23vh; /* Ajustar la altura usando vh para mantenerla proporcional en todas las pantallas */
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-image: url('../images/brain2.png'); /* Ajusta la ruta de la imagen */
+    background-size: contain; /* Mantiene la proporción de la imagen */
+    background-repeat: no-repeat; /* No se repetirá */
+    width: 340px; /* Ancho aumentado */
+    height: 340px; /* Alto aumentado */
+    z-index: 1; /* Mantiene la imagen detrás del título */
+    opacity: 1; 
+    filter: brightness(1.2) contrast(1.5); /* Brillo y contraste */
+    animation: breathe 10s infinite; /* Aplicar animación de respiración */
+}
+
+/* Media queries para garantizar que la altura de las imágenes se mantenga constante */
+@media (max-width: 768px) {
+    .lightning {
+        top: 10vh; /* Mantiene la posición proporcional */
+    }
+    .mis-proyectos-nueva::before {
+        top: 20vh; /* Mantiene la posición proporcional */
+    }
+}
+/* SECCION FOOTER */
+.contact-footer {
+    background-color: rgba(0, 0, 0, 0.7); /* Fondo negro deslavado */
+    color: white; /* Color del texto */
+    padding: 40px 10px; /* Aumentar el padding superior e inferior */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centro del contenido */
+    overflow: hidden; /* Evita desbordamiento */
+}
+
+.footer-container {
+    max-width: 800px; /* Ancho máximo del contenido */
+    width: 100%; /* Ancho 100% en pantallas pequeñas */
+    text-align: center; /* Centrar texto */
+}
+
+.social-icons {
+    display: flex;
+    justify-content: space-around; /* Espacio equidistante entre los íconos */
+    align-items: center; /* Centrarlos verticalmente */
+    margin-bottom: 20px; /* Espacio debajo de los íconos */
+    flex-wrap: wrap; /* Permitir que los íconos se envuelvan en pantallas pequeñas */
+}
+
+.social-icons a {
+    color: white; /* Color blanco para los enlaces */
+    margin: 0 20px; /* Mayor margen a la izquierda y derecha de los enlaces */
+    text-decoration: none; /* Sin subrayado */
+    font-size: 20px; /* Tamaño de los íconos */
+    display: flex; /* Para que los elementos internos se alineen correctamente */
+    flex-direction: column; /* Colocar ícono y texto uno arriba del otro */
+    align-items: center; /* Centramos el texto debajo del ícono */
+    position: relative; /* Necesario para posicionar la información */
+}
+
+.social-icons span {
+    margin-top: 5px; /* Espacio entre el ícono y el texto */
+    font-size: 14px; /* Tamaño del texto para las etiquetas */
+    text-align: center; /* Alinear etiquetas al centro */
+}
+
+
+.info {
+    display: none; /* Oculta la información inicialmente */
+    position: absolute; /* Posición absoluta para mostrar al lado del ícono */
+    top: 50%; /* Posiciona verticalmente a la mitad */
+    left: 100%; /* Move a la derecha del ícono */
+    transform: translateY(-50%); /* Centra verticalmente respecto al ícono */
+    background-color: rgba(0, 0, 0, 0.8); /* Fondo negro para la información */
+    color: white; /* Color del texto de la información */
+    padding: 5px; /* Espacio interno */
+    margin-left: 10px; /* Espacio entre el ícono y la información */
+    border-radius: 4px; /* Bordes redondeados */
+    white-space: nowrap; /* Evita que la información se divida en varias líneas */
+}
+
+.copy-icon {
+    margin-top: 5px; /* Espacio entre la información y el ícono de copiar */
+    color: #007BFF; /* Color del ícono de copiar */
+    cursor: pointer; /* Cambiar el cursor al pasar el mouse */
+}
+
+.social-icons a:hover {
+    opacity: 0.8; /* Cambia a más oscuro al pasar el mouse */
+}
+
+/* Media Queries para Responsividad */
+@media (max-width: 768px) {
+    .footer-container {
+        padding: 20px; /* Espacio entre el contenido y los bordes en pantallas más pequeñas */
+    }
+
+    .social-icons {
+        flex-direction: column; /* Cambia a columna en pantallas más pequeñas */
+        align-items: center; /* Centra los iconos en caso de que sean verticales */
+    }
+
+    .social-icons a {
+        margin: 15px 0; /* Espacio vertical entre los iconos en vez de horizontal */
+    }
+}
+
+@media (max-width: 375px) {
+    .social-icons {
+        margin-bottom: 15px; /* Ajusta el margen inferior */
+    }
+}
+
+@media (max-width: 320px) {
+    .back-end-title {
+        font-size: 20px; /* Ajusta el tamaño del título según sea necesario */
+    }
+}
+
+
+
+.contact-title {
+    margin-bottom: 70px; /* Espacio debajo del título */
+    margin-top: 70px;
+    font-size: 30px;
+}
+
+form {
+    display: flex;
+    flex-direction: column; /* Colocar elementos uno debajo del otro */
+    gap: 10px; /* Espacio entre elementos del formulario */
+    margin-top: 50px;
+}
+
+input, textarea {
+    padding: 10px;
+    border: 1px solid #ccc; /* Borde claro */
+    border-radius: 4px; /* Bordes redondeados */
+    width: 100%; /* Ancho completo */
+}
+
+button {
+    padding: 10px 15px;
+    background-color: #007BFF; /* Color del botón */
+    color: white; /* Color del texto del botón */
+    border: none; /* Sin borde */
+    border-radius: 4px;
+    cursor: pointer; /* Cambia el cursor a mano */
+}
+
+button:hover {
+    background-color: #0056b3; /* Un color más oscuro en hover */
+}
+
+/* Media Queries para Responsividad */
+@media (max-width: 768px) {
+    button {
+        width: 100%; /* Botón ocupa el ancho completo */
+    }
+}
+
+
+
+/* Media queries para estilos responsivos */
+@media (max-width: 1200px) {
+    .back-end-title {
+        font-size: 36px;
+    }
+}
+
+@media (max-width: 1024px) {
+    .back-end-title {
+        font-size: 32px;
+    }
+}
+
+@media (max-width: 768px) {
+    .back-end-title {
+        font-size: 28px;
+    }
+}
+
+@media (max-width: 480px) {
+    .back-end-title {
+        font-size: 24px;
+    }
+}
+
+@media (max-width: 320px) {
+    .back-end-title {
+        font-size: 20px;
+    }
+}
+
+.divider {
+    width: 100%; /* Ancho completo */
+    height: 1px; /* Altura de la línea */
+    background-color: rgba(255, 255, 255, 0.5); /* Color y opacidad de la línea */
+    margin-top: 80px; /* Margen arriba y abajo */
+    margin-bottom: 10px;
+    padding-bottom: 0;
+}
+
+
+
+/* Nuestro servicio */
+
+.subtitulo {
+  text-align: center;
+  font-weight: 300;
+  color: #9f8ad0;
+  margin-bottom: 10px;
+  font-size: 20px;
+}
+/*
+.contenedor-servicio {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.contenedor-servicio img {
+  width: 40%;
+}
+
+.checklist-servicio {
+  width: 45%;
+}
+
+.service {
+  margin-bottom: 20px;
+}
+
+.n-service {
+  margin-bottom: 7px;
+  color: #9f8ad0;
+}
+*/
+.container {
+  display: flex;
+  align-items: stretch; /* Alinear las columnas para que tengan la misma altura */
+  justify-content: space-between;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  flex-wrap: wrap; /* Permite que se ajusten las columnas en pantallas pequeñas */
+}
+
+.column {
+  flex: 1 1 200px; /* Flexibilidad y anchura mínima */
+  margin: 10px; /* Espacio entre columnas */
+  padding: 15px;
+  display: flex; /* Utiliza flexbox para la alineación interior */
+  flex-direction: column; /* Alinear el contenido en columna */
+  justify-content: space-between; /* Espacio entre el título, texto y el resto */
+}
+
+.image-column {
+  display: flex;
+  flex-direction: column; /* Asegura que la imagen y el texto se apilen verticalmente */
+  align-items: center; /* Centra los elementos dentro de la columna */
+}
+
+.image-column img {
+  border-radius: 50%; /* Hacer la imagen circular */
+  width: 150px;      /* Ancho de la imagen */
+  height: 150px;     /* Alto de la imagen */
+  object-fit: cover; /* Asegura que la imagen se recorte adecuadamente */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Efecto de sombra */
+}
+
+.image-caption {
+  margin-top: 10px; /* Espacio entre la imagen y el texto */
+  text-align: center; /* Centrar el texto */
+}
+
+h2 {
+  margin: 0 0 10px;
+  text-align: center; /* Centrar los títulos */
+}
+
+
+.left-align {
+  text-align: left; /* Alinear completamente a la izquierda */
+  width: 100%; /* Asegura que el párrafo ocupe el ancho completo de la columna */
+  margin-bottom: 10px; /* Margen inferior de 3 píxeles */
+
+
+}
+
+
+
+
+p {
+  margin: 0;
+  text-align: justify; /* Justificar el texto */
+}
+
+
+
+
+/* Medios Query para Responsividad */
+@media (max-width: 768px) {
+  .container {
+      flex-direction: column; /* Cambiar a disposición en columna en pantallas pequeñas */
+      align-items: center; /* Centrar columnas en pantallas pequeñas */
+  }
+
+  .image-column {
+      margin: 20px 0; /* Espacio adicional entre la imagen y el texto */
+  }
+
+  .column {
+      text-align: center; /* Centrar texto en pantallas pequeñas */
+  }
+}
+
+/*CONTENEDOR DE TARJETAS DE TECNOLOGIAS Y LENGUAJES */
+.container_tarjetas {
+  display: flex;
+  justify-content: center; /* Centrar las tarjetas horizontalmente */
+  flex-wrap: wrap;
+  max-width: 900px;
+  margin: 0; /* Eliminamos los márgenes */
+  padding: 20px; /* Puedes ajustar el padding según lo necesites */
+}
+
+
+.card {
+  background-color: #fff;
+  border-radius: 15px;
+  width: 250px; /* Más larga que ancha */
+  height: 300px; /* Ajusta a tu preferencia */
+  text-align: center;
+  margin: 15px;
+  padding: 20px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
+  display: flex; /* Usamos flexbox para centrar elementos */
+  flex-direction: column; /* Colocamos los elementos en columna */
+  align-items: center; /* Centra horizontalmente el contenido */
+  justify-content: center; /* Centra verticalmente el contenido */
+}
+
+.card img {
+  width: 100px; /* Tamaño de la imagen */
+  height: auto; /* Mantiene la proporción original de la imagen */
+  margin-bottom: 15px; /* Espacio entre la imagen y el texto */
+  border-radius: 15px; /* Esquinas redondeadas */
+}
+
+.card h3 {
+  margin: 0; /* Sin margen para evitar espacio innecesario */
+}
+
+.card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  background-color: #e0f7fa; /* Color de fondo al hacer hover */
+}
+
+
+@media (max-width: 768px) {
+  .card {
+      width: 80%; /* Responsivo para pantallas más pequeñas */
+      height: auto; /* Ajustamos la altura a auto */
+  }
+
+  .container_tarjetas {
+      flex-direction: column;
+      align-items: center;
+  }
+}
+
+
+
+
+.number {
+  display: inline-block;
+  background-image: linear-gradient(to top, #a18cd1 0%, #fbc2eb 100%);
+  width: 30px;
+  height: 30px;
+  color: #fff;
+  text-align: center;
+  border-radius: 50%;
+  font-weight: 700;
+  line-height: 30px;
+  margin-right: 5px;
+}
+
+.gallery {
+  background: #f2f2f2;
+}
+
+.contenedor-galeria {
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}
+
+.img-galeria {
+  object-fit: cover;
+  width: 30%;
+  display: block;
+  margin-bottom: 15px;
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.5);
+  cursor: pointer;
+}
+
+.imagen-light {
+  position: fixed;
+  background: rgba(0, 0, 0, 0.6);
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform: translate(100%);
+  transition: transform 0.2s ease-in-out;
+}
+
+.show {
+  transform: translate(0);
+}
+
+.agregar-imagen {
+  object-fit: cover;
+  width: 60%;
+  border-radius: 10px;
+  transform: scale(0);
+  transition: transform 0.3s 0.2s;
+}
+
+.showImage {
+  transform: scale(1);
+}
+
+.close {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  width: 40px;
+  cursor: pointer;
+}
+
+/* experts */
+
+.experts {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.cont-expert {
+  width: 30%;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.cont-expert img {
+  width: 80%;
+  display: block;
+  margin: 0 auto;
+}
+
+.n-expert {
+  display: inline-block;
+  margin-top: 20px;
+  width: 100%;
+  font-weight: 400;
+}
+
+/* footer */
+
+
+
+
+
+@media screen and (max-width: 800px) {
+  .menu-navegacion {
+    width: 50vw;
+  }
+
+  .titulo {
+    font-size: 40px;
+  }
+
+  .contenedor-servicio img {
+    width: 80%;
+    margin-bottom: 40px;
+  }
+
+  .checklist-servicio {
+    width: 80%;
+  }
+
+  .service {
+    margin-bottom: 30px;
+  }
+
+  .agregar-imagen {
+    width: 80%;
+  }
+
+  .img-galeria {
+    width: 45%;
+  }
+
+  .cont-expert {
+    width: 80%;
+  }
+
+  .footer-content {
+    justify-content: center;
+  }
+
+  .social-media {
+    width: 80%;
+    justify-content: space-evenly;
+  }
+
+  .social-media-icon {
+    margin-left: 0;
+  }
+
+  .social-media i {
+    margin-left: 0;
+  }
+
+  .contact-us {
+    text-align: center;
+    width: 80%;
+    margin-bottom: 40px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .menu-navegacion {
+    width: 65vw;
+  }
+
+  .hamburger {
+    top: 20px;
+    right: 20px;
+  }
+
+  .titulo {
+    font-size: 30px;
+  }
+
+  .subtitulo {
+    font-size: 30px;
+  }
+
+  .agregar-imagen {
+    width: 95%;
+  }
+
+  .img-galeria {
+    width: 95%;
+  }
+
+  .social-media {
+    width: 100%;
+  }
+
+  .contact-us {
+    width: 90%;
+  }
+}
+.imagen-lightbox {
+  width: 70%;
+  transform: scale(0);
+  transition: transform 0.3s ease-in-out;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
+}
+
+.imagen-lightbox.showImage {
+  transform: scale(1);
+}
+
+/* Asegúrate de que la imagen no deseada no sea visible */
+.agregar-imagen {
+  display: none !important;
+}
+
+/* En tu estilos.css */
+.agregar-imagen {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+    width: 0 !important;
+    height: 0 !important;
+    position: absolute !important;
+    left: -9999px !important;
+}
+
+/* Reglas CSS de respaldo - Agregar al final de estilos.css */
+.agregar-imagen {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+    width: 0 !important;
+    height: 0 !important;
+    position: absolute !important;
+    left: -9999px !important;
+    pointer-events: none !important;
+}
+
+/* Agrega esto AL FINAL de tu estilos.css */
+.imagen-light, 
+.agregar-imagen, 
+.close {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+    width: 0 !important;
+    height: 0 !important;
+    position: absolute !important;
+    left: -9999px !important;
+    pointer-events: none !important;
+}
