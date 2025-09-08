@@ -12,6 +12,8 @@
       /* Estilos adicionales para mejorar la sección backend */
       .mis-proyectos-nueva {
         padding-bottom: 80px; /* Aumentar padding inferior */
+        position: relative;
+        z-index: 1;
       }
       
       .gestor-nominas .contenido-tarjeta {
@@ -81,6 +83,239 @@
         color: #721c24;
         border: 1px solid #f5c6cb;
       }
+      
+      /* Mejoras para la sección de backend con cerebro y rayos */
+      .back-end-container {
+        position: relative;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 40px 0;
+      }
+      
+      .back-end-title {
+        color: white;
+        font-size: 38px;
+        text-align: center;
+        z-index: 10;
+        position: relative;
+        margin: 0 0 40px 0;
+        padding: 20px;
+        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
+      }
+      
+      .brain-container {
+        position: relative;
+        width: 100%;
+        height: 300px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 40px;
+      }
+      
+      .lightning {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 60%;
+        max-width: 320px;
+        z-index: 2;
+        animation: flash 1.2s infinite alternate, breathe 10s infinite;
+      }
+      
+      .lightning2 {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 60%;
+        max-width: 320px;
+        z-index: 3;
+        animation: flash 1.5s infinite alternate, breathe 10s infinite;
+      }
+      
+      .lightning3 {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 60%;
+        max-width: 320px;
+        z-index: 4;
+        animation: flash 2.5s infinite alternate, breathe 10s infinite;
+      }
+      
+      .brain-image {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 340px;
+        height: 340px;
+        z-index: 5;
+        animation: breathe 10s infinite;
+        filter: brightness(1.2) contrast(1.5);
+      }
+      
+      @keyframes flash {
+        0% {
+          opacity: 0;
+        }
+        50% {
+          opacity: 1;
+          filter: brightness(2);
+        }
+        100% {
+          opacity: 0;
+        }
+      }
+      
+      @keyframes breathe {
+        0%, 100% {
+          transform: translate(-50%, -50%) scale(1);
+        }
+        50% {
+          transform: translate(-50%, -50%) scale(1.05);
+        }
+      }
+      
+      /* Mejoras de texto y responsividad */
+      .contenido-tarjeta p {
+        text-align: justify;
+        text-justify: inter-word;
+        line-height: 1.6;
+      }
+      
+      /* Mejoras para el formulario de contacto */
+      .contact-footer {
+        padding: 40px 20px;
+      }
+      
+      .footer-container {
+        max-width: 800px;
+        margin: 0 auto;
+      }
+      
+      .social-icons {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 20px;
+        margin-bottom: 40px;
+      }
+      
+      .social-icons a {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-decoration: none;
+        color: white;
+        transition: transform 0.3s ease;
+      }
+      
+      .social-icons a:hover {
+        transform: translateY(-5px);
+      }
+      
+      .social-icons i {
+        font-size: 24px;
+        margin-bottom: 8px;
+      }
+      
+      .social-icons span {
+        font-size: 14px;
+        margin-bottom: 5px;
+      }
+      
+      .info {
+        font-size: 12px;
+        opacity: 0.8;
+      }
+      
+      .copy-icon {
+        margin-top: 5px;
+        cursor: pointer;
+        font-size: 14px;
+      }
+      
+      #contact-form input,
+      #contact-form textarea {
+        width: 100%;
+        padding: 12px;
+        margin-bottom: 15px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        font-family: 'Open Sans', sans-serif;
+      }
+      
+      #contact-form button {
+        background-color: #007bff;
+        color: white;
+        border: none;
+        padding: 12px 24px;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 16px;
+        transition: background-color 0.3s ease;
+      }
+      
+      #contact-form button:hover {
+        background-color: #0056b3;
+      }
+      
+      /* Responsive improvements */
+      @media (max-width: 768px) {
+        .back-end-title {
+          font-size: 28px;
+          margin-bottom: 30px;
+        }
+        
+        .brain-image {
+          width: 250px;
+          height: 250px;
+        }
+        
+        .social-icons {
+          flex-direction: column;
+          align-items: center;
+          gap: 15px;
+        }
+        
+        .social-icons a {
+          width: 100%;
+          max-width: 250px;
+        }
+        
+        .proyectos-contenedor {
+          flex-direction: column;
+        }
+        
+        .tarjeta-proyecto {
+          width: 100%;
+          margin-bottom: 30px;
+        }
+      }
+      
+      @media (max-width: 480px) {
+        .back-end-title {
+          font-size: 24px;
+          padding: 10px;
+        }
+        
+        .brain-image {
+          width: 200px;
+          height: 200px;
+        }
+        
+        .lightning,
+        .lightning2,
+        .lightning3 {
+          max-width: 250px;
+        }
+      }
     </style>
   </head>
   <body>
@@ -106,7 +341,7 @@
         <h1 class="back-end-title" style="font-size: 38px; padding: 30px;">Front-end<br>projects</h1>
         <div class="proyectos-contenedor">
             <div class="tarjeta-proyecto">
-              <video width="640" height="360" loop autoplay>
+              <video width="640" height="360" loop autoplay muted>
                 <source src="images/2025-03-17-17-37-36.mp4" type="video/mp4">
               </video>
                 <div class="contenido-tarjeta">
@@ -118,8 +353,8 @@
                         <span class="etiqueta">JavaScript</span>
                     </div>
                     <div class="botones-tarjeta">
-                        <a href="https://clothes-explorer-2887a.web.app/"target="_blank" class="boton-proyecto">Live Demo</a>
-                        <a href="https://github.com/EATrejo/Clothes_Explorer"target="_blank" class="boton-proyecto">Code</a>
+                        <a href="https://clothes-explorer-2887a.web.app/" target="_blank" class="boton-proyecto">Live Demo</a>
+                        <a href="https://github.com/EATrejo/Clothes_Explorer" target="_blank" class="boton-proyecto">Code</a>
                     </div>
                 </div>
             </div>
@@ -135,11 +370,12 @@
                         <span class="etiqueta">JavaScript</span>
                     </div>
                     <div class="botones-tarjeta">
-                        <a href="https://eatrejo.github.io/PAGINA_WEB_UNIFORMES1/"target="_blank" class="boton-proyecto">Live Demo</a>
-                        <a href="https://github.com/EATrejo/PAGINA_WEB_UNIFORMES1"target="_blank" class="boton-proyecto">Code</a>
+                        <a href="https://eatrejo.github.io/PAGINA_WEB_UNIFORMES1/" target="_blank" class="boton-proyecto">Live Demo</a>
+                        <a href="https://github.com/EATrejo/PAGINA_WEB_UNIFORMES1" target="_blank" class="boton-proyecto">Code</a>
                     </div>
                 </div>
             </div>
+            
             <div class="tarjeta-proyecto">
               <img src="images/vintage-shop.png" alt="Proyecto 3">
               <div class="contenido-tarjeta">
@@ -151,8 +387,8 @@
                       <span class="etiqueta">JavaScript</span>
                   </div>
                   <div class="botones-tarjeta">
-                      <a href="https://eatrejo.github.io/WOMAN_CLOTHES_SHOP/"target="_blank" class="boton-proyecto">Live Demo</a>
-                      <a href="https://github.com/EATrejo/WOMAN_CLOTHES_SHOP"target="_blank" class="boton-proyecto">Code</a>
+                      <a href="https://eatrejo.github.io/WOMAN_CLOTHES_SHOP/" target="_blank" class="boton-proyecto">Live Demo</a>
+                      <a href="https://github.com/EATrejo/WOMAN_CLOTHES_SHOP" target="_blank" class="boton-proyecto">Code</a>
                   </div>
               </div>
             </div>
@@ -178,7 +414,7 @@
                 <img src="images/bienes_raices_portada.png" alt="Proyecto 5">
                 <div class="contenido-tarjeta">
                     <h4>Real State Web(front-end)</h4>
-                    <p>I found the tutorial on YouTube for developing the front end of a page made in React for beginners, and then I followed the tutorial to create it..</p>
+                    <p>I found the tutorial on YouTube for developing the front end of a page made in React for beginners, and then I followed the tutorial to create it.</p>
                     <div class="etiquetas">
                         <span class="etiqueta">HTML</span>
                         <span class="etiqueta">React</span>
@@ -186,8 +422,8 @@
                         <span class="etiqueta">JavaScript</span>
                     </div>
                     <div class="botones-tarjeta">
-                        <a href="https://funny-daffodil-350bc9.netlify.app/"target="_blank" class="boton-proyecto">Live Demo</a>
-                        <a href="https://github.com/EATrejo/real_state_webpage"target="_blank" class="boton-proyecto">Code</a>
+                        <a href="https://funny-daffodil-350bc9.netlify.app/" target="_blank" class="boton-proyecto">Live Demo</a>
+                        <a href="https://github.com/EATrejo/real_state_webpage" target="_blank" class="boton-proyecto">Code</a>
                     </div>
                 </div>
             </div>
@@ -196,15 +432,15 @@
                 <img src="images/escuela-cocina.png" alt="Proyecto 6">
                 <div class="contenido-tarjeta">
                     <h4>Escuela de gastronomía</h4>
-                    <p>I created this project by following the principles from a tutorial, and then I customized it to ultimately turn it into an option for developing the front end of a school..</p>
+                    <p>I created this project by following the principles from a tutorial, and then I customized it to ultimately turn it into an option for developing the front end of a school.</p>
                     <div class="etiquetas">
                         <span class="etiqueta">HTML</span>
                         <span class="etiqueta">CSS</span>
                         <span class="etiqueta">JavaScript</span>
                     </div>
                     <div class="botones-tarjeta">
-                        <a href="https://eatrejo.github.io/escuela_de_gastronomia/#"target="_blank" class="boton-proyecto">Live Demo</a>
-                        <a href="https://github.com/EATrejo/escuela_de_gastronomia"target="_blank" class="boton-proyecto">Code</a>
+                        <a href="https://eatrejo.github.io/escuela_de_gastronomia/#" target="_blank" class="boton-proyecto">Live Demo</a>
+                        <a href="https://github.com/EATrejo/escuela_de_gastronomia" target="_blank" class="boton-proyecto">Code</a>
                     </div>
                 </div>
             </div>
@@ -212,13 +448,18 @@
       </section>
       
       <section class="mis-proyectos-nueva" id="back-end">
-        <h1 class="back-end-title">Back-end<br>projects</h1>
-        <img src="images/Relampagos.png" class="lightning" alt="Rayos Destellantes" />
-        <img src="images/rayos-frontales (1).png" class="lightning2" alt="Rayos Destellantes frontales" />
-        <img src="images/rayos4.png" class="lightning3" alt="Rayos Destellantes frontales"/>
+        <div class="back-end-container">
+          <h1 class="back-end-title">Back-end<br>projects</h1>
+          
+          <div class="brain-container">
+            <img src="images/Relampagos.png" class="lightning" alt="Rayos Destellantes" />
+            <img src="images/rayos-frontales (1).png" class="lightning2" alt="Rayos Destellantes frontales" />
+            <img src="images/rayos4.png" class="lightning3" alt="Rayos Destellantes frontales"/>
+            <img src="images/brain2.png" class="brain-image" alt="Cerebro" />
+          </div>
+        </div>
       
         <div class="proyectos-contenedor">
-            <!-- Aquí van las tarjetas de proyectos -->
             <div class="tarjeta-proyecto">
                 <img src="images/literatus-pantalla.png" alt="Proyecto 7">
                 <div class="contenido-tarjeta">
@@ -232,12 +473,12 @@
                         <span class="etiqueta">JavaScript</span>
                     </div>
                     <div class="botones-tarjeta">
-                        <a href="https://literatustalleresycursos.com/"target="_blank" class="boton-proyecto">Live Demo</a>
-                        <a href="https://github.com/EATrejo/literatus-project"target="_blank" class="boton-proyecto">Code</a>
+                        <a href="https://literatustalleresycursos.com/" target="_blank" class="boton-proyecto">Live Demo</a>
+                        <a href="https://github.com/EATrejo/literatus-project" target="_blank" class="boton-proyecto">Code</a>
                     </div>
                 </div>
             </div>
-            <!-- Agregar más tarjetas aquí -->
+            
             <div class="tarjeta-proyecto">
                 <img src="images/just-purple-pantalla.png" alt="Proyecto 8">
                 <div class="contenido-tarjeta">
@@ -251,11 +492,12 @@
                         <span class="etiqueta">HTML</span>
                     </div>
                     <div class="botones-tarjeta">
-                        <a href="https://alonsotrejo1970.pythonanywhere.com/"target="_blank" class="boton-proyecto">Live Demo</a>
-                        <a href="https://github.com/EATrejo/JUST-PURPLE-AND-PURPLE"target="_blank" class="boton-proyecto">Code</a>
+                        <a href="https://alonsotrejo1970.pythonanywhere.com/" target="_blank" class="boton-proyecto">Live Demo</a>
+                        <a href="https://github.com/EATrejo/JUST-PURPLE-AND-PURPLE" target="_blank" class="boton-proyecto">Code</a>
                     </div>
                 </div>
             </div>
+            
             <div class="tarjeta-proyecto gestor-nominas">
               <img src="images/gestor_nominas_image.png" alt="Project 3">
               <div class="contenido-tarjeta">
@@ -279,7 +521,10 @@
         </div>
       </section>
       
-      
+      <section class="imagen-light">
+        <img src="images/close.svg" alt="" class="close" />
+        <!-- Eliminada la imagen de libros que estaba aquí -->
+      </section>
       
       <section class="contenedor" id="expertos">
         <h2 class="subtitulo">TECH STACK</h2>
@@ -300,29 +545,29 @@
             <div class="card">
               <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Python-logo-notext.svg" alt="Python Logo">
               <h3>Python</h3>
-          </div>
-          <div class="card">
-            <img src="images/Django-Logo.png" alt="SQL Logo">
+            </div>
+            <div class="card">
+              <img src="images/Django-Logo.png" alt="SQL Logo">
               <h3>Django</h3>
-          </div>
-          <div class="card">
-            <img src="images/sql_ejercicios.png" alt="Django Logo">
+            </div>
+            <div class="card">
+              <img src="images/sql_ejercicios.png" alt="Django Logo">
               <h3>SQL</h3>
+            </div>
+            <!-- NUEVAS TARJETAS AÑADIDAS -->
+            <div class="card">
+              <img src="https://cdn.worldvectorlogo.com/logos/postman.svg" alt="Postman Logo">
+              <h3>Postman</h3>
+            </div>
+            <div class="card">
+              <img src="https://cdn.worldvectorlogo.com/logos/github-icon-1.svg" alt="GitHub Logo">
+              <h3>GitHub</h3>
+            </div>
+            <div class="card">
+              <img src="https://www.django-rest-framework.org/img/logo.png" alt="Django REST Framework Logo">
+              <h3>Django REST Framework</h3>
+            </div>
           </div>
-          <!-- NUEVAS TARJETAS AÑADIDAS -->
-          <div class="card">
-            <img src="https://cdn.worldvectorlogo.com/logos/postman.svg" alt="Postman Logo">
-            <h3>Postman</h3>
-          </div>
-          <div class="card">
-            <img src="https://cdn.worldvectorlogo.com/logos/github-icon-1.svg" alt="GitHub Logo">
-            <h3>GitHub</h3>
-          </div>
-          <div class="card">
-            <img src="https://www.django-rest-framework.org/img/logo.png" alt="Django REST Framework Logo">
-            <h3>Django REST Framework</h3>
-          </div>
-        </div>
         </section>
       </section>
       
@@ -331,9 +576,10 @@
           <div class="contenedor-galeria">
             <div class="card" style="width: 100%; height: 100%; margin: 0; padding: 40px;">
               <h2 style="color: rgba(0, 0, 0, 0.65);">ABOUT ME</h2>
-              <p style="font-size: 20px;">I am currently 55 years old and I work as a rideshare driver, but for the past couple of years, I have started studying everything related to web development on my own, as I have always been very attracted to design and creativity. It has sparked a special interest in me for Python and especially back-end development, because my imagination encourages me to create functional applications that I might someday be able to market.</p>
+              <p style="font-size: 20px; text-align: justify;">I am currently 55 years old and I work as a rideshare driver, but for the past couple of years, I have started studying everything related to web development on my own, as I have always been very attracted to design and creativity. It has sparked a special interest in me for Python and especially back-end development, because my imagination encourages me to create functional applications that I might someday be able to market.</p>
               <br><br><br>
-               <h3>Go to my resume:</h3><a href="docs/Resume.updated.AlonsoEdgar-1-1 (1).pdf" target="_blank">Get it now</a>
+              <h3>Go to my resume:</h3>
+              <a href="docs/Resume.updated.AlonsoEdgar-1-1 (1).pdf" target="_blank">Get it now</a>
             </div> 
           </div>
         </div>
@@ -445,7 +691,8 @@
                     // Auto-eliminar mensaje después de 5 segundos
                     setTimeout(() => alert.remove(), 5000);
                 } else {
-                    throw new Error('Error en la respuesta del servidor');
+                    const data = await response.json();
+                    throw new Error(data.error || 'Error en la respuesta del servidor');
                 }
                 
             } catch (error) {
@@ -466,315 +713,315 @@
     </script>
 
     <script>
-  // Objeto con las traducciones para cada idioma
-  const translations = {
-    en: {
-      // Header
-      "Full Stack Developer Jr": "Full Stack Developer Jr",
-      "Front-end": "Front-end",
-      "Back-end": "Back-end",
-      "Tech Stack": "Tech Stack",
-      "About me": "About me",
-      "Contact me": "Contact me",
-      "ALONSO TREJO": "ALONSO TREJO",
-      "Full Stack Developer Jr": "Full Stack Developer Jr",
-      "Located in Mexico City.": "Located in Mexico City.",
-      
-      // Front-end projects
-      "Front-endprojects": "Front-end projects",
-      "XopStore": "XopStore",
-      "This project aimed to implement the front-end of a clothing boutique website. The main objective was to integrate swipers from an external library and practice various techniques and effects in CSS, such as @keyframes, as well as achieve rotating effects and the ScrollReveal effect in JavaScript and CSS.": 
-      "This project aimed to implement the front-end of a clothing boutique website. The main objective was to integrate swipers from an external library and practice various techniques and effects in CSS, such as @keyframes, as well as achieve rotating effects and the ScrollReveal effect in JavaScript and CSS.",
-      "UNIFORMES DIANA": "UNIFORMES DIANA",
-      "This website is practically an e-commerce platform for selling uniforms, functioning with a JSON file as a database, since the main focus of the exercise was to develop the front-end part.": 
-      "This website is practically an e-commerce platform for selling uniforms, functioning with a JSON file as a database, since the main focus of the exercise was to develop the front-end part.",
-      "Women Vintage Clothes Shop": "Women Vintage Clothes Shop",
-      "In this project, I emphasized the creativity I could express using the typical tools of a front-end developer: HTML, CSS, and JavaScript. The result was a retro theme uniform across all elements.": 
-      "In this project, I emphasized the creativity I could express using the typical tools of a front-end developer: HTML, CSS, and JavaScript. The result was a retro theme uniform across all elements.",
-      "HAMBURGERS WEB PAGE": "HAMBURGERS WEB PAGE",
-      "In this project, I worked on the design based on two different types of swipers that perfectly optimize space, which is precisely what sliders and/or swipers are meant for: to showcase all the menus in a practical and organized manner.": 
-      "In this project, I worked on the design based on two different types of swipers that perfectly optimize space, which is precisely what sliders and/or swipers are meant for: to showcase all the menus in a practical and organized manner.",
-      "Real State Web(front-end)": "Real State Web(front-end)",
-      "I found the tutorial on YouTube for developing the front end of a page made in React for beginners, and then I followed the tutorial to create it..": 
-      "I found the tutorial on YouTube for developing the front end of a page made in React for beginners, and then I followed the tutorial to create it..",
-      "Escuela de gastronomía": "Gastronomy School",
-      "I created this project by following the principles from a tutorial, and then I customized it to ultimately turn it into an option for developing the front end of a school..": 
-      "I created this project by following the principles from a tutorial, and then I customized it to ultimately turn it into an option for developing the front end of a school..",
-      
-      // Back-end projects
-      "Back-endprojects": "Back-end projects",
-      "literatustalleresycursos.com": "literatustalleresycursos.com",
-      "In fact, this project is already in production and was created as an innovative desktop application aimed at inviting literature lovers to check if there is a book club near them and for their favorite book. If so, they can directly register on the website for that book club, and they will receive a confirmation of their registration via email, as well as the exact address where the event will be held.": 
-      "In fact, this project is already in production and was created as an innovative desktop application aimed at inviting literature lovers to check if there is a book club near them and for their favorite book. If so, they can directly register on the website for that book club, and they will receive a confirmation of their registration via email, as well as the exact address where the event will be held.",
-      "JUST PURPLE & PURPLE": "JUST PURPLE & PURPLE",
-      "This is an e-commerce platform created in Django with the purpose of practicing and deepening the design of the back-end of an application based on the concept of online sales. The application is hosted on Python Anywhere with the mission of exploring different ways to host back-end pages on the web.": 
-      "This is an e-commerce platform created in Django with the purpose of practicing and deepening the design of the back-end of an application based on the concept of online sales. The application is hosted on Python Anywhere with the mission of exploring different ways to host back-end pages on the web.",
-      "GESTOR DE NÓMINAS MEXICANAS": "MEXICAN PAYROLL MANAGER",
-      "Esta es una aplicación creada para gestionar las nóminas semanal, quincenal y mensual de las empresas que se quieran registrar gratis con menos de 100 empleados. Podrán calcular o hacer deducciones del ISR, IMSS, así como bonificar pagos por días festivos trabajados, primas dominicales y registrar faltas y descontar el monto correspondiente. Es un procesador básico de nóminas; un simulador que podría escalarse hasta desarrollar nóminas completas y bajo las leyes mexicanas laborales.": 
-      "This is an application created to manage weekly, bi-weekly, and monthly payroll for companies that want to register for free with less than 100 employees. They can calculate or make deductions for ISR, IMSS, as well as bonus payments for worked holidays, Sunday premiums, and register absences and deduct the corresponding amount. It is a basic payroll processor; a simulator that could be scaled to develop complete payrolls under Mexican labor laws.",
-      
-      // Tech Stack
-      "TECH STACK": "TECH STACK",
-      
-      // About me
-      "ABOUT ME": "ABOUT ME",
-      "I am currently 55 years old and I work as a rideshare driver, but for the past couple of years, I have started studying everything related to web development on my own, as I have always been very attracted to design and creativity. It has sparked a special interest in me for Python and especially back-end development, because my imagination encourages me to create functional applications that I might someday be able to market.": 
-      "I am currently 55 years old and I work as a rideshare driver, but for the past couple of years, I have started studying everything related to web development on my own, as I have always been very attracted to design and creativity. It has sparked a special interest in me for Python and especially back-end development, because my imagination encourages me to create functional applications that I might someday be able to market.",
-      "Go to my resume:": "Go to my resume:",
-      "Get it now": "Get it now",
-      
-      // Contact
-      "Contact": "Contact",
-      "Email": "Email",
-      "GitHub": "GitHub",
-      "WhatsApp": "WhatsApp",
-      "Name": "Name",
-      "Message": "Message",
-      "Submit": "Submit",
-      "© Portafolio Alonso Trejo by Alonso Trejo - July 2025": "© Portfolio Alonso Trejo by Alonso Trejo - July 2025"
-    },
-    es: {
-      // Header
-      "Full Stack Developer Jr": "Desarrollador Full Stack Jr",
-      "Front-end": "Front-end",
-      "Back-end": "Back-end",
-      "Tech Stack": "Tecnologías",
-      "About me": "Sobre mí",
-      "Contact me": "Contáctame",
-      "ALONSO TREJO": "ALONSO TREJO",
-      "Full Stack Developer Jr": "Desarrollador Full Stack Jr",
-      "Located in Mexico City.": "Ubicado en Ciudad de México.",
-      
-      // Front-end projects
-      "Front-endprojects": "Proyectos Front-end",
-      "XopStore": "XopStore",
-      "This project aimed to implement the front-end of a clothing boutique website. The main objective was to integrate swipers from an external library and practice various techniques and effects in CSS, such as @keyframes, as well as achieve rotating effects and the ScrollReveal effect in JavaScript and CSS.": 
-      "Este proyecto tuvo como objetivo implementar el front-end de un sitio web de boutique de ropa. El objetivo principal fue integrar swipers de una biblioteca externa y practicar varias técnicas y efectos en CSS, como @keyframes, así como lograr efectos de rotación y el efecto ScrollReveal en JavaScript y CSS.",
-      "UNIFORMES DIANA": "UNIFORMES DIANA",
-      "This website is practically an e-commerce platform for selling uniforms, functioning with a JSON file as a database, since the main focus of the exercise was to develop the front-end part.": 
-      "Este sitio web es prácticamente una plataforma de comercio electrónico para la venta de uniformes, que funciona con un archivo JSON como base de datos, ya que el enfoque principal del ejercicio era desarrollar la parte del front-end.",
-      "Women Vintage Clothes Shop": "Tienda de Ropa Vintage para Mujer",
-      "In this project, I emphasized the creativity I could express using the typical tools of a front-end developer: HTML, CSS, and JavaScript. The result was a retro theme uniform across all elements.": 
-      "En este proyecto, enfaticé la creatividad que podía expresar usando las herramientas típicas de un desarrollador front-end: HTML, CSS y JavaScript. El resultado fue un tema retro uniforme en todos los elementos.",
-      "HAMBURGERS WEB PAGE": "PÁGINA WEB DE HAMBURGUESAS",
-      "In this project, I worked on the design based on two different types of swipers that perfectly optimize space, which is precisely what sliders and/or swipers are meant for: to showcase all the menus in a practical and organized manner.": 
-      "En este proyecto, trabajé en el diseño basado en dos tipos diferentes de swipers que optimizan perfectamente el espacio, que es precisamente para lo que están destinados los sliders y/o swipers: mostrar todos los menús de manera práctica y organizada.",
-      "Real State Web(front-end)": "Página Web de Bienes Raíces(front-end)",
-      "I found the tutorial on YouTube for developing the front end of a page made in React for beginners, and then I followed the tutorial to create it..": 
-      "Encontré el tutorial en YouTube para desarrollar el front end de una página hecha en React para principiantes, y luego seguí el tutorial para crearla.",
-      "Escuela de gastronomía": "Escuela de gastronomía",
-      "I created this project by following the principles from a tutorial, and then I customized it to ultimately turn it into an option for developing the front end of a school..": 
-      "Creé este proyecto siguiendo los principios de un tutorial, and then I customized it to ultimately turn it into an option for developing the front end of a school..",
-      
-      // Back-end projects
-      "Back-endprojects": "Proyectos Back-end",
-      "literatustalleresycursos.com": "literatustalleresycursos.com",
-      "In fact, this project is already in production and was created as an innovative desktop application aimed at inviting literature lovers to check if there is a book club near them and for their favorite book. If so, they can directly register on the website for that book club, and they will receive a confirmation of their registration via email, as well as the exact address where the event will be held.": 
-      "De hecho, este proyecto ya está en producción y fue creado como una aplicación de escritorio innovadora destinada a invitar a los amantes de la literatura a verificar si hay a club de lectura cerca de ellos y para su libro favorito. Si es así, pueden registrarse directamente en el sitio web para ese club de lectura y recibirán una confirmación de su registro por correo electrónico, así como la dirección exacta donde se llevará a cabo el evento.",
-      "JUST PURPLE & PURPLE": "JUST PURPLE & PURPLE",
-      "This is an e-commerce platform created in Django with the purpose of practicing and deepening the design of the back-end of an application based on the concept of online sales. The application is hosted on Python Anywhere with the mission of exploring different ways to host back-end pages on the web.": 
-      "Esta es una plataforma de comercio electrónico creada en Django con el propósito de practicar y profundizar en el diseño del back-end de una aplicación basada en el concepto de ventas en línea. La aplicación está alojada en Python Anywhere con la misión de explorar diferentes formas de alojar páginas back-end en la web.",
-      "GESTOR DE NÓMINAS MEXICANAS": "GESTOR DE NÓMINAS MEXICANAS",
-      "Esta es una aplicación creada para gestionar las nóminas semanal, quincenal y mensual de las empresas que se quieran registrar gratis con menos de 100 empleados. Podrán calcular o hacer deducciones del ISR, IMSS, así como bonificar pagos por días festivos trabajados, primas dominicales y registrar faltas y descontar el monto correspondiente. Es un procesador básico de nóminas; un simulador que podría escalarse hasta desarrollar nóminas completas y bajo las leyes mexicanas laborales.": 
-      "Esta es una aplicación creada para gestionar las nóminas semanal, quincenal y mensual de las empresas que se quieran registrar gratis con menos de 100 empleados. Podrán calcular o hacer deducciones del ISR, IMSS, así como bonificar pagos por días festivos trabajados, primas dominicales y registrar faltas y descontar el monto correspondiente. Es un procesador básico de nóminas; un simulador que podría escalarse hasta desarrollar nóminas completas y bajo las leyes mexicanas laborales.",
-      
-      // Tech Stack
-      "TECH STACK": "TECNOLOGÍAS",
-      
-      // About me
-      "ABOUT ME": "SOBRE MÍ",
-      "I am currently 55 years old and I work as a rideshare driver, but for the past couple of years, I have started studying everything related to web development on my own, as I have always been very attracted to design and creativity. It has sparked a special interest in me for Python and especially back-end development, because my imagination encourages me to create functional applications that I might someday be able to market.": 
-      "Actualmente tengo 55 años y trabajo como conductor de aplicacion, pero durante los últimos años he comenzado a estudiar por mi cuenta todo lo relacionado con el desarrollo web, ya que siempre me ha atraído mucho el diseño y la creatividad. Esto ha despertado en mí un interés especial por Python y especialmente por el desarrollo back-end, porque mi imaginación me anima a crear aplicaciones funcionales que algún día podría comercializar.",
-      "Go to my resume:": "Ver mi currículum:",
-      "Get it now": "Descargar ahora",
-      
-      // Contact
-      "Contact": "Contacto",
-      "Email": "Correo",
-      "GitHub": "GitHub",
-      "WhatsApp": "WhatsApp",
-      "Name": "Nombre",
-      "Message": "Mensaje",
-      "Submit": "Enviar",
-      "© Portafolio Alonso Trejo by Alonso Trejo - July 2025": "© Portafolio Alonso Trejo por Alonso Trejo - Julio 2025"
-    }
-  };
+      // Objeto con las traducciones para cada idioma
+      const translations = {
+        en: {
+          // Header
+          "Full Stack Developer Jr": "Full Stack Developer Jr",
+          "Front-end": "Front-end",
+          "Back-end": "Back-end",
+          "Tech Stack": "Tech Stack",
+          "About me": "About me",
+          "Contact me": "Contact me",
+          "ALONSO TREJO": "ALONSO TREJO",
+          "Full Stack Developer Jr": "Full Stack Developer Jr",
+          "Located in Mexico City.": "Located in Mexico City.",
+          
+          // Front-end projects
+          "Front-endprojects": "Front-end projects",
+          "XopStore": "XopStore",
+          "This project aimed to implement the front-end of a clothing boutique website. The main objective was to integrate swipers from an external library and practice various techniques and effects in CSS, such as @keyframes, as well as achieve rotating effects and the ScrollReveal effect in JavaScript and CSS.": 
+          "This project aimed to implement the front-end of a clothing boutique website. The main objective was to integrate swipers from an external library and practice various techniques and effects in CSS, such as @keyframes, as well as achieve rotating effects and the ScrollReveal effect in JavaScript and CSS.",
+          "UNIFORMES DIANA": "UNIFORMES DIANA",
+          "This website is practically an e-commerce platform for selling uniforms, functioning with a JSON file as a database, since the main focus of the exercise was to develop the front-end part.": 
+          "This website is practically an e-commerce platform for selling uniforms, functioning with a JSON file as a database, since the main focus of the exercise was to develop the front-end part.",
+          "Women Vintage Clothes Shop": "Women Vintage Clothes Shop",
+          "In this project, I emphasized the creativity I could express using the typical tools of a front-end developer: HTML, CSS, and JavaScript. The result was a retro theme uniform across all elements.": 
+          "In this project, I emphasized the creativity I could express using the typical tools of a front-end developer: HTML, CSS, and JavaScript. The result was a retro theme uniform across all elements.",
+          "HAMBURGERS WEB PAGE": "HAMBURGERS WEB PAGE",
+          "In this project, I worked on the design based on two different types of swipers that perfectly optimize space, which is precisely what sliders and/or swipers are meant for: to showcase all the menus in a practical and organized manner.": 
+          "In this project, I worked on the design based on two different types of swipers that perfectly optimize space, which is precisely what sliders and/or swipers are meant for: to showcase all the menus in a practical and organized manner.",
+          "Real State Web(front-end)": "Real State Web(front-end)",
+          "I found the tutorial on YouTube for developing the front end of a page made in React for beginners, and then I followed the tutorial to create it..": 
+          "I found the tutorial on YouTube for developing the front end of a page made in React for beginners, and then I followed the tutorial to create it..",
+          "Escuela de gastronomía": "Gastronomy School",
+          "I created this project by following the principles from a tutorial, and then I customized it to ultimately turn it into an option for developing the front end of a school..": 
+          "I created this project by following the principles from a tutorial, and then I customized it to ultimately turn it into an option for developing the front end of a school..",
+          
+          // Back-end projects
+          "Back-endprojects": "Back-end projects",
+          "literatustalleresycursos.com": "literatustalleresycursos.com",
+          "In fact, this project is already in production and was created as an innovative desktop application aimed at inviting literature lovers to check if there is a book club near them and for their favorite book. If so, they can directly register on the website for that book club, and they will receive a confirmation of their registration via email, as well as the exact address where the event will be held.": 
+          "In fact, this project is already in production and was created as an innovative desktop application aimed at inviting literature lovers to check if there is a book club near them and for their favorite book. If so, they can directly register on the website for that book club, and they will receive a confirmation of their registration via email, as well as the exact address where the event will be held.",
+          "JUST PURPLE & PURPLE": "JUST PURPLE & PURPLE",
+          "This is an e-commerce platform created in Django with the purpose of practicing and deepening the design of the back-end of an application based on the concept of online sales. The application is hosted on Python Anywhere with the mission of exploring different ways to host back-end pages on the web.": 
+          "This is an e-commerce platform created in Django with the purpose of practicing and deepening the design of the back-end of an application based on the concept of online sales. The application is hosted on Python Anywhere with the mission of exploring different ways to host back-end pages on the web.",
+          "GESTOR DE NÓMINAS MEXICANAS": "MEXICAN PAYROLL MANAGER",
+          "Esta es una aplicación creada para gestionar las nóminas semanal, quincenal y mensual de las empresas que se quieran registrar gratis con menos de 100 empleados. Podrán calcular o hacer deducciones del ISR, IMSS, así como bonificar pagos por días festivos trabajados, primas dominicales y registrar faltas y descontar el monto correspondiente. Es un procesador básico de nóminas; un simulador que podría escalarse hasta desarrollar nóminas completas y bajo las leyes mexicanas laborales.": 
+          "This is an application created to manage weekly, bi-weekly, and monthly payroll for companies that want to register for free with less than 100 employees. They can calculate or make deductions for ISR, IMSS, as well as bonus payments for worked holidays, Sunday premiums, and register absences and deduct the corresponding amount. It is a basic payroll processor; a simulator that could be scaled to develop complete payrolls under Mexican labor laws.",
+          
+          // Tech Stack
+          "TECH STACK": "TECH STACK",
+          
+          // About me
+          "ABOUT ME": "ABOUT ME",
+          "I am currently 55 years old and I work as a rideshare driver, but for the past couple of years, I have started studying everything related to web development on my own, as I have always been very attracted to design and creativity. It has sparked a special interest in me for Python and especially back-end development, because my imagination encourages me to create functional applications that I might someday be able to market.": 
+          "I am currently 55 years old and I work as a rideshare driver, but for the past couple of years, I have started studying everything related to web development on my own, as I have always been very attracted to design and creativity. It has sparked a special interest in me for Python and especially back-end development, because my imagination encourages me to create functional applications that I might someday be able to market.",
+          "Go to my resume:": "Go to my resume:",
+          "Get it now": "Get it now",
+          
+          // Contact
+          "Contact": "Contact",
+          "Email": "Email",
+          "GitHub": "GitHub",
+          "WhatsApp": "WhatsApp",
+          "Name": "Name",
+          "Message": "Message",
+          "Submit": "Submit",
+          "© Portafolio Alonso Trejo by Alonso Trejo - July 2025": "© Portfolio Alonso Trejo by Alonso Trejo - July 2025"
+        },
+        es: {
+          // Header
+          "Full Stack Developer Jr": "Desarrollador Full Stack Jr",
+          "Front-end": "Front-end",
+          "Back-end": "Back-end",
+          "Tech Stack": "Tecnologías",
+          "About me": "Sobre mí",
+          "Contact me": "Contáctame",
+          "ALONSO TREJO": "ALONSO TREJO",
+          "Full Stack Developer Jr": "Desarrollador Full Stack Jr",
+          "Located in Mexico City.": "Ubicado en Ciudad de México.",
+          
+          // Front-end projects
+          "Front-endprojects": "Proyectos Front-end",
+          "XopStore": "XopStore",
+          "This project aimed to implement the front-end of a clothing boutique website. The main objective was to integrate swipers from an external library and practice various techniques and effects in CSS, such as @keyframes, as well as achieve rotating effects and the ScrollReveal effect in JavaScript and CSS.": 
+          "Este proyecto tuvo como objetivo implementar el front-end de un sitio web de boutique de ropa. El objetivo principal fue integrar swipers de una biblioteca externa y practicar varias técnicas y efectos en CSS, como @keyframes, así como lograr efectos de rotación y el efecto ScrollReveal en JavaScript y CSS.",
+          "UNIFORMES DIANA": "UNIFORMES DIANA",
+          "This website is practically an e-commerce platform for selling uniforms, functioning with a JSON file as a database, since the main focus of the exercise was to develop the front-end part.": 
+          "Este sitio web es prácticamente una plataforma de comercio electrónico para la venta de uniformes, que funciona con un archivo JSON como base de datos, ya que el enfoque principal del ejercicio era desarrollar la parte del front-end.",
+          "Women Vintage Clothes Shop": "Tienda de Ropa Vintage para Mujer",
+          "In this project, I emphasized the creativity I could express using the typical tools of a front-end developer: HTML, CSS, and JavaScript. The result was a retro theme uniform across all elements.": 
+          "En este proyecto, enfaticé la creatividad que podía expresar usando las herramientas típicas de un desarrollador front-end: HTML, CSS y JavaScript. El resultado fue un tema retro uniforme en todos los elementos.",
+          "HAMBURGERS WEB PAGE": "PÁGINA WEB DE HAMBURGUESAS",
+          "In this project, I worked on the design based on two different types of swipers that perfectly optimize space, which is precisely what sliders and/or swipers are meant for: to showcase all the menus in a practical and organized manner.": 
+          "En este proyecto, trabajé en el diseño basado en dos tipos diferentes de swipers que optimizan perfectamente el espacio, que es precisamente para lo que están destinados los sliders y/o swipers: mostrar todos los menús de manera práctica y organizada.",
+          "Real State Web(front-end)": "Página Web de Bienes Raíces(front-end)",
+          "I found the tutorial on YouTube for developing the front end of a page made in React for beginners, and then I followed the tutorial to create it..": 
+          "Encontré el tutorial en YouTube para desarrollar el front end de una página hecha en React para principiantes, y luego seguí el tutorial para crearla.",
+          "Escuela de gastronomía": "Escuela de gastronomía",
+          "I created this project by following the principles from a tutorial, and then I customized it to ultimately turn it into an option for developing the front end of a school..": 
+          "Creé este proyecto siguiendo los principios de un tutorial, and then I customized it to ultimately turn it into an option for developing the front end of a school..",
+          
+          // Back-end projects
+          "Back-endprojects": "Proyectos Back-end",
+          "literatustalleresycursos.com": "literatustalleresycursos.com",
+          "In fact, this project is already in production and was created as an innovative desktop application aimed at inviting literature lovers to check if there is a book club near them and for their favorite book. If so, they can directly register on the website for that book club, and they will receive a confirmation of their registration via email, as well as the exact address where the event will be held.": 
+          "De hecho, este proyecto ya está en producción y fue creado como una aplicación de escritorio innovadora destinada a invitar a los amantes de la literatura a verificar si hay a club de lectura cerca de ellos y para su libro favorito. Si es así, pueden registrarse directamente en el sitio web para ese club de lectura y recibirán una confirmación de su registro por correo electrónico, así como la dirección exacta donde se llevará a cabo el evento.",
+          "JUST PURPLE & PURPLE": "JUST PURPLE & PURPLE",
+          "This is an e-commerce platform created in Django with the purpose of practicing and deepening the design of the back-end of an application based on the concept of online sales. The application is hosted on Python Anywhere with the mission of exploring different ways to host back-end pages on the web.": 
+          "Esta es una plataforma de comercio electrónico creada en Django con el propósito de practicar y profundizar en el diseño del back-end de una aplicación basada en el concepto de ventas en línea. La aplicación está alojada en Python Anywhere con la misión de explorar diferentes formas de alojar páginas back-end en la web.",
+          "GESTOR DE NÓMINAS MEXICANAS": "GESTOR DE NÓMINAS MEXICANAS",
+          "Esta es una aplicación creada para gestionar las nóminas semanal, quincenal y mensual de las empresas que se quieran registrar gratis con menos de 100 empleados. Podrán calcular o hacer deducciones del ISR, IMSS, así como bonificar pagos por días festivos trabajados, primas dominicales y registrar faltas y descontar el monto correspondiente. Es un procesador básico de nóminas; un simulador que podría escalarse hasta desarrollar nóminas completas y bajo las leyes mexicanas laborales.": 
+          "Esta es una aplicación creada para gestionar las nóminas semanal, quincenal y mensual de las empresas que se quieran registrar gratis con menos de 100 empleados. Podrán calcular o hacer deducciones del ISR, IMSS, así como bonificar pagos por días festivos trabajados, primas dominicales y registrar faltas y descontar el monto correspondiente. Es un procesador básico de nóminas; un simulador que podría escalarse hasta desarrollar nóminas completas y bajo las leyes mexicanas laborales.",
+          
+          // Tech Stack
+          "TECH STACK": "TECNOLOGÍAS",
+          
+          // About me
+          "ABOUT ME": "SOBRE MÍ",
+          "I am currently 55 years old and I work as a rideshare driver, but for the past couple of years, I have started studying everything related to web development on my own, as I have always been very attracted to design and creativity. It has sparked a special interest in me for Python and especially back-end development, because my imagination encourages me to create functional applications that I might someday be able to market.": 
+          "Actualmente tengo 55 años y trabajo como conductor de aplicacion, pero durante los últimos años he comenzado a estudiar por mi cuenta todo lo relacionado con el desarrollo web, ya que siempre me ha atraído mucho el diseño y la creatividad. Esto ha despertado en mí un interés especial por Python y especialmente por el desarrollo back-end, porque mi imaginación me anima a crear aplicaciones funcionales que algún día podría comercializar.",
+          "Go to my resume:": "Ver mi currículum:",
+          "Get it now": "Descargar ahora",
+          
+          // Contact
+          "Contact": "Contacto",
+          "Email": "Correo",
+          "GitHub": "GitHub",
+          "WhatsApp": "WhatsApp",
+          "Name": "Nombre",
+          "Message": "Mensaje",
+          "Submit": "Enviar",
+          "© Portafolio Alonso Trejo by Alonso Trejo - July 2025": "© Portafolio Alonso Trejo por Alonso Trejo - Julio 2025"
+        }
+      };
 
-  // Función para cambiar el idioma
-  function changeLanguage(lang) {
-    // Guardar el idioma seleccionado en localStorage
-    localStorage.setItem('selectedLanguage', lang);
-    
-    // Actualizar los textos en tiempo real
-    updateTexts(lang);
-  }
+      // Función para cambiar el idioma
+      function changeLanguage(lang) {
+        // Guardar el idioma seleccionado en localStorage
+        localStorage.setItem('selectedLanguage', lang);
+        
+        // Actualizar los textos en tiempo real
+        updateTexts(lang);
+      }
 
-  // Función para actualizar todos los textos
-  function updateTexts(lang) {
-    // Seleccionar todos los elementos que necesitan traducción
-    const elementsToTranslate = document.querySelectorAll('[data-translate]');
-    
-    elementsToTranslate.forEach(element => {
-      const key = element.getAttribute('data-translate');
-      if (translations[lang] && translations[lang][key]) {
-        element.textContent = translations[lang][key];
+      // Función para actualizar todos los textos
+      function updateTexts(lang) {
+        // Seleccionar todos los elementos que necesitan traducción
+        const elementsToTranslate = document.querySelectorAll('[data-translate]');
+        
+        elementsToTranslate.forEach(element => {
+          const key = element.getAttribute('data-translate');
+          if (translations[lang] && translations[lang][key]) {
+            element.textContent = translations[lang][key];
+          }
+        });
+        
+        // Actualizar placeholders de inputs y textareas
+        const inputs = document.querySelectorAll('input, textarea');
+        inputs.forEach(input => {
+          const placeholder = input.getAttribute('placeholder');
+          if (placeholder && translations[lang] && translations[lang][placeholder]) {
+            input.setAttribute('placeholder', translations[lang][placeholder]);
+          }
+        });
+        
+        // Actualizar valores de botones
+        const buttons = document.querySelectorAll('button');
+        buttons.forEach(button => {
+          const value = button.textContent.trim();
+          if (value && translations[lang] && translations[lang][value]) {
+            button.textContent = translations[lang][value];
+          }
+        });
       }
-    });
-    
-    // Actualizar placeholders de inputs y textareas
-    const inputs = document.querySelectorAll('input, textarea');
-    inputs.forEach(input => {
-      const placeholder = input.getAttribute('placeholder');
-      if (placeholder && translations[lang] && translations[lang][placeholder]) {
-        input.setAttribute('placeholder', translations[lang][placeholder]);
-      }
-    });
-    
-    // Actualizar valores de botones
-    const buttons = document.querySelectorAll('button');
-    buttons.forEach(button => {
-      const value = button.textContent.trim();
-      if (value && translations[lang] && translations[lang][value]) {
-        button.textContent = translations[lang][value];
-      }
-    });
-  }
 
-  // Crear el selector de idiomas
-  function createLanguageSelector() {
-    const headContainer = document.querySelector('.contenedor.head');
-    
-    if (!headContainer) {
-      console.error('No se encontró el contenedor para el selector de idiomas');
-      return;
-    }
-    
-    const languageSelector = document.createElement('div');
-    languageSelector.className = 'language-selector';
-    languageSelector.style.display = 'flex';
-    languageSelector.style.justifyContent = 'center';
-    languageSelector.style.marginTop = '20px';
-    languageSelector.style.gap = '15px';
-    
-    const englishBtn = document.createElement('button');
-    englishBtn.textContent = 'ENG';
-    englishBtn.style.padding = '8px 20px';
-    englishBtn.style.border = '2px solid #fff';
-    englishBtn.style.borderRadius = '20px';
-    englishBtn.style.cursor = 'pointer';
-    englishBtn.style.backgroundColor = 'transparent';
-    englishBtn.style.color = '#fff';
-    englishBtn.style.fontWeight = 'bold';
-    englishBtn.style.transition = 'all 0.3s ease';
-    englishBtn.addEventListener('mouseover', () => {
-      englishBtn.style.backgroundColor = '#fff';
-      englishBtn.style.color = '#000';
-    });
-    englishBtn.addEventListener('mouseout', () => {
-      englishBtn.style.backgroundColor = 'transparent';
-      englishBtn.style.color = '#fff';
-    });
-    englishBtn.addEventListener('click', () => changeLanguage('en'));
-    
-    const spanishBtn = document.createElement('button');
-    spanishBtn.textContent = 'ESP';
-    spanishBtn.style.padding = '8px 20px';
-    spanishBtn.style.border = '2px solid #fff';
-    spanishBtn.style.borderRadius = '20px';
-    spanishBtn.style.cursor = 'pointer';
-    spanishBtn.style.backgroundColor = 'transparent';
-    spanishBtn.style.color = '#fff';
-    spanishBtn.style.fontWeight = 'bold';
-    spanishBtn.style.transition = 'all 0.3s ease';
-    spanishBtn.addEventListener('mouseover', () => {
-      spanishBtn.style.backgroundColor = '#fff';
-      spanishBtn.style.color = '#000';
-    });
-    spanishBtn.addEventListener('mouseout', () => {
-      spanishBtn.style.backgroundColor = 'transparent';
-      spanishBtn.style.color = '#fff';
-    });
-    spanishBtn.addEventListener('click', () => changeLanguage('es'));
-    
-    languageSelector.appendChild(englishBtn);
-    languageSelector.appendChild(spanishBtn);
-    
-    headContainer.appendChild(languageSelector);
-    
-    // Verificar si hay un idioma guardado en localStorage
-    const savedLanguage = localStorage.getItem('selectedLanguage');
-    if (savedLanguage) {
-      updateTexts(savedLanguage);
-    } else {
-      // Establecer un idioma predeterminado si no hay ninguno guardado
-      const userLang = navigator.language || navigator.userLanguage;
-      const defaultLang = userLang.startsWith('es') ? 'es' : 'en';
-      changeLanguage(defaultLang);
-    }
-  }
-
-  // Asignar atributos data-translate a los elementos que necesitan traducción
-  function prepareElementsForTranslation() {
-    // Obtener todos los textos únicos que necesitan traducción
-    const uniqueTexts = new Set();
-    
-    // Agregar manualmente los elementos que necesitan traducción
-    const elements = document.querySelectorAll('a, h1, h2, h3, h4, p, span, button, label');
-    
-    elements.forEach(element => {
-      const text = element.textContent.trim();
-      if (text && !element.hasAttribute('data-translate')) {
-        // Crear una clave única para la traducción
-        const key = text.replace(/<br>/g, '').replace(/\s+/g, ' ').trim();
-        element.setAttribute('data-translate', key);
-        uniqueTexts.add(key);
-      }
-    });
-    
-    // Agregar placeholders de inputs
-    const inputs = document.querySelectorAll('input, textarea');
-    inputs.forEach(input => {
-      const placeholder = input.getAttribute('placeholder');
-      if (placeholder && !input.hasAttribute('data-translate')) {
-        input.setAttribute('data-translate', placeholder);
-        uniqueTexts.add(placeholder);
-      }
-    });
-    
-    // Agregar valores de botones
-    const buttons = document.querySelectorAll('button');
-    buttons.forEach(button => {
-      const value = button.textContent.trim();
-      if (value && !button.hasAttribute('data-translate')) {
-        button.setAttribute('data-translate', value);
-        uniqueTexts.add(value);
-      }
-    });
-    
-    // Verificar si hay textos en las traducciones que no están en el DOM
-    for (const lang in translations) {
-      for (const key in translations[lang]) {
-        if (!uniqueTexts.has(key)) {
-          console.warn(`Texto no encontrado en el DOM pero presente en traducciones: ${key}`);
+      // Crear el selector de idiomas
+      function createLanguageSelector() {
+        const headContainer = document.querySelector('.contenedor.head');
+        
+        if (!headContainer) {
+          console.error('No se encontró el contenedor para el selector de idiomas');
+          return;
+        }
+        
+        const languageSelector = document.createElement('div');
+        languageSelector.className = 'language-selector';
+        languageSelector.style.display = 'flex';
+        languageSelector.style.justifyContent = 'center';
+        languageSelector.style.marginTop = '20px';
+        languageSelector.style.gap = '15px';
+        
+        const englishBtn = document.createElement('button');
+        englishBtn.textContent = 'ENG';
+        englishBtn.style.padding = '8px 20px';
+        englishBtn.style.border = '2px solid #fff';
+        englishBtn.style.borderRadius = '20px';
+        englishBtn.style.cursor = 'pointer';
+        englishBtn.style.backgroundColor = 'transparent';
+        englishBtn.style.color = '#fff';
+        englishBtn.style.fontWeight = 'bold';
+        englishBtn.style.transition = 'all 0.3s ease';
+        englishBtn.addEventListener('mouseover', () => {
+          englishBtn.style.backgroundColor = '#fff';
+          englishBtn.style.color = '#000';
+        });
+        englishBtn.addEventListener('mouseout', () => {
+          englishBtn.style.backgroundColor = 'transparent';
+          englishBtn.style.color = '#fff';
+        });
+        englishBtn.addEventListener('click', () => changeLanguage('en'));
+        
+        const spanishBtn = document.createElement('button');
+        spanishBtn.textContent = 'ESP';
+        spanishBtn.style.padding = '8px 20px';
+        spanishBtn.style.border = '2px solid #fff';
+        spanishBtn.style.borderRadius = '20px';
+        spanishBtn.style.cursor = 'pointer';
+        spanishBtn.style.backgroundColor = 'transparent';
+        spanishBtn.style.color = '#fff';
+        spanishBtn.style.fontWeight = 'bold';
+        spanishBtn.style.transition = 'all 0.3s ease';
+        spanishBtn.addEventListener('mouseover', () => {
+          spanishBtn.style.backgroundColor = '#fff';
+          spanishBtn.style.color = '#000';
+        });
+        spanishBtn.addEventListener('mouseout', () => {
+          spanishBtn.style.backgroundColor = 'transparent';
+          spanishBtn.style.color = '#fff';
+        });
+        spanishBtn.addEventListener('click', () => changeLanguage('es'));
+        
+        languageSelector.appendChild(englishBtn);
+        languageSelector.appendChild(spanishBtn);
+        
+        headContainer.appendChild(languageSelector);
+        
+        // Verificar si hay un idioma guardado en localStorage
+        const savedLanguage = localStorage.getItem('selectedLanguage');
+        if (savedLanguage) {
+          updateTexts(savedLanguage);
+        } else {
+          // Establecer un idioma predeterminado si no hay ninguno guardado
+          const userLang = navigator.language || navigator.userLanguage;
+          const defaultLang = userLang.startsWith('es') ? 'es' : 'en';
+          changeLanguage(defaultLang);
         }
       }
-    }
-  }
 
-  // Inicializar la funcionalidad de idioma
-  function initLanguage() {
-    prepareElementsForTranslation();
-    createLanguageSelector();
-  }
+      // Asignar atributos data-translate a los elementos que necesitan traducción
+      function prepareElementsForTranslation() {
+        // Obtener todos los textos únicos que necesitan traducción
+        const uniqueTexts = new Set();
+        
+        // Agregar manualmente los elementos que necesitan traducción
+        const elements = document.querySelectorAll('a, h1, h2, h3, h4, p, span, button, label');
+        
+        elements.forEach(element => {
+          const text = element.textContent.trim();
+          if (text && !element.hasAttribute('data-translate')) {
+            // Crear una clave única para la traducción
+            const key = text.replace(/<br>/g, '').replace(/\s+/g, ' ').trim();
+            element.setAttribute('data-translate', key);
+            uniqueTexts.add(key);
+          }
+        });
+        
+        // Agregar placeholders de inputs
+        const inputs = document.querySelectorAll('input, textarea');
+        inputs.forEach(input => {
+          const placeholder = input.getAttribute('placeholder');
+          if (placeholder && !input.hasAttribute('data-translate')) {
+            input.setAttribute('data-translate', placeholder);
+            uniqueTexts.add(placeholder);
+          }
+        });
+        
+        // Agregar valores de botones
+        const buttons = document.querySelectorAll('button');
+        buttons.forEach(button => {
+          const value = button.textContent.trim();
+          if (value && !button.hasAttribute('data-translate')) {
+            button.setAttribute('data-translate', value);
+            uniqueTexts.add(value);
+          }
+        });
+        
+        // Verificar si hay textos en las traducciones que no están en el DOM
+        for (const lang in translations) {
+          for (const key in translations[lang]) {
+            if (!uniqueTexts.has(key)) {
+              console.warn(`Texto no encontrado en el DOM pero presente en traducciones: ${key}`);
+            }
+          }
+        }
+      }
 
-  // Esperar a que el DOM esté completamente cargado
-  document.addEventListener('DOMContentLoaded', initLanguage);
+      // Inicializar la funcionalidad de idioma
+      function initLanguage() {
+        prepareElementsForTranslation();
+        createLanguageSelector();
+      }
 
-  // También ejecutar si el DOM ya está cargado (por si el script se carga después)
-  if (document.readyState === 'complete' || document.readyState === 'interactive') {
-    setTimeout(initLanguage, 1);
-  }
-</script>
+      // Esperar a que el DOM esté completamente cargado
+      document.addEventListener('DOMContentLoaded', initLanguage);
+
+      // También ejecutar si el DOM ya está cargado (por si el script se carga después)
+      if (document.readyState === 'complete' || document.readyState === 'interactive') {
+        setTimeout(initLanguage, 1);
+      }
+    </script>
 
     <script src="js/menu.js"></script>
     <script src="js/lightbox.js"></script>
