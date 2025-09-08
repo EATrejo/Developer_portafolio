@@ -1031,7 +1031,7 @@
     <script src="js/menu.js"></script>
     <script src="js/lightbox.js"></script>
     <script src="js/slider.js"></script>
-    <script src="js/brain.js"></script>
+    
     <script>
     // SOLUCIÓN DEFINITIVA - Eliminación completa de imagen no deseada
     (function() {
@@ -1114,6 +1114,152 @@
             return element;
         };
     })();
+    </script>
+    <script>
+    // DIAGNÓSTICO Y ELIMINACIÓN DEFINITIVA DE IMAGEN NO DESEADA
+    console.log("=== INICIANDO DIAGNÓSTICO ===");
+
+    // Función para identificar qué script está creando la imagen no deseada
+    function identificarOrigenProblema() {
+        // Obtener todos los scripts en la página
+        const todosLosScripts = document.querySelectorAll('script[src]');
+        console.log("Scripts cargados en la página:");
+        todosLosScripts.forEach(script => console.log("- " + script.src));
+        
+        // Verificar si hay scripts con código inline que pueda crear la imagen
+        const scriptsInline = document.querySelectorAll('script:not([src])');
+        console.log("Se encontraron " + scriptsInline.length + " scripts inline");
+    }
+
+    // Función agresiva para eliminar la imagen no deseada
+    function eliminarImagenNoDeseada() {
+        const selectores = [
+            'img.agregar-imagen',
+            'img[src*="bliblioteca"]',
+            'img[src*="bliblioteca.jpg"]',
+            '*[style*="bliblioteca.jpg"]'
+        ];
+        
+        let eliminadas = 0;
+        
+        selectores.forEach(selector => {
+            const elementos = document.querySelectorAll(selector);
+            elementos.forEach(elemento => {
+                console.log("ELIMINANDO elemento no deseado:", elemento);
+                elemento.remove();
+                eliminadas++;
+            });
+        });
+        
+        // Buscar en todos los elementos con background-image
+        const todosElementos = document.querySelectorAll('*');
+        todosElementos.forEach(el => {
+            const estilo = window.getComputedStyle(el);
+            if (estilo.backgroundImage.includes('bliblioteca.jpg')) {
+                console.log("ELIMINANDO elemento con background no deseado:", el);
+                el.remove();
+                eliminadas++;
+            }
+        });
+        
+        if (eliminadas > 0) {
+            console.log("Se eliminaron " + eliminadas + " elementos no deseados");
+        }
+        
+        return eliminadas;
+    }
+
+    // SOLUCIÓN AGRESIVA: Sobrescribir métodos del DOM
+    function prevenirCreacionImagen() {
+        // Sobrescribir document.createElement
+        const originalCreateElement = document.createElement;
+        document.createElement = function(tagName) {
+            const element = originalCreateElement.call(this, tagName);
+            
+            if (tagName.toLowerCase() === 'img') {
+                const originalSetAttribute = element.setAttribute;
+                element.setAttribute = function(name, value) {
+                    if (name === 'src' && value.includes('bliblioteca')) {
+                        console.log("BLOQUEADO: Intento de crear imagen no deseada con src:", value);
+                        return; // No establecer el atributo
+                    }
+                    return originalSetAttribute.call(this, name, value);
+                };
+                
+                // Interceptar la asignación directa a src
+                Object.defineProperty(element, 'src', {
+                    set: function(value) {
+                        if (value.includes('bliblioteca')) {
+                            console.log("BLOQUEADO: Intento de asignar src no deseado:", value);
+                            return;
+                        }
+                        element.setAttribute('src', value);
+                    },
+                    get: function() {
+                        return element.getAttribute('src');
+                    }
+                });
+            }
+            
+            return element;
+        };
+        
+        // Sobrescribir innerHTML y outerHTML para prevenir inyección de la imagen
+        ['innerHTML', 'outerHTML'].forEach(prop => {
+            const originalDescriptor = Object.getOwnPropertyDescriptor(Element.prototype, prop);
+            
+            Object.defineProperty(Element.prototype, prop, {
+                set: function(value) {
+                    if (value.includes('bliblioteca.jpg') || value.includes('agregar-imagen')) {
+                        console.log("BLOQUEADO: Intento de inyectar HTML con imagen no deseada");
+                        const limpiado = value.replace(/bliblioteca\.jpg|agregar-imagen/g, '');
+                        return originalDescriptor.set.call(this, limpiado);
+                    }
+                    return originalDescriptor.set.call(this, value);
+                },
+                get: function() {
+                    return originalDescriptor.get.call(this);
+                }
+            });
+        });
+    }
+
+    // Ejecutar cuando el DOM esté listo
+    document.addEventListener('DOMContentLoaded', function() {
+        console.log("DOM cargado - Iniciando limpieza...");
+        identificarOrigenProblema();
+        prevenirCreacionImagen();
+        
+        // Eliminar cualquier imagen existente
+        eliminarImagenNoDeseada();
+        
+        // Observar cambios en el DOM
+        const observer = new MutationObserver(function(mutations) {
+            mutations.forEach(function(mutation) {
+                if (mutation.addedNodes.length) {
+                    console.log("Se agregaron nuevos nodos, verificando...");
+                    eliminarImagenNoDeseada();
+                }
+            });
+        });
+        
+        observer.observe(document.body, {
+            childList: true,
+            subtree: true,
+            attributes: true,
+            attributeFilter: ['src', 'class']
+        });
+        
+        // Ejecutar periódicamente por si acaso
+        const interval = setInterval(eliminarImagenNoDeseada, 500);
+        setTimeout(() => clearInterval(interval), 10000);
+    });
+
+    // También ejecutar después de que todos los scripts se carguen
+    window.addEventListener('load', function() {
+        console.log("Página completamente cargada - Verificación final");
+        eliminarImagenNoDeseada();
+    });
     </script>
   </body>
 </html>
