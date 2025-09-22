@@ -171,7 +171,7 @@
                 <img src="images/escuela-cocina.png" alt="Proyecto 6">
                 <div class="contenido-tarjeta">
                     <h4>Escuela de gastronomía</h4>
-                    <p>I created this project by following the principles from a tutorial, and then I customized it to ultimately turn it   into an option for developing the front end of a school..</p>
+                    <p data-translate="Creé este proyecto siguiendo los principios de un tutorial, y luego lo personalicé para convertirlo finalmente en una opción para desarrollar el front end de una escuela.">I created this project by following the principles from a tutorial, and then I customized it to ultimately turn it into an option for developing the front end of a school.</p>
                     <div class="etiquetas">
                         <span class="etiqueta">HTML</span>
                         <span class="etiqueta">CSS</span>
@@ -328,7 +328,8 @@
 
               <p style="font-size: 20px;">I am currently 55 years old and I work as a rideshare driver, but for the past couple of years, I have started studying everything related to web development on my own, as I have always been very attracted to design and creativity. It has sparked a special interest in me for Python and especially back-end development, because my imagination encourages me to create functional applications that I might someday be able to market.</p>
               <br><br><br>
-               <h3>Go to my resume:</h3><a href="docs/Resume.updated.AlonsoEdgar(1).pdf" target="_blank">Get it now</a>
+               <h3 data-translate="Go to my resume:">Go to my resume:</h3>
+               <a href="#" id="resume-link" target="_blank" data-translate="Get it now">Get it now</a>
             </div> 
  
           </div>
@@ -429,8 +430,8 @@ form.addEventListener("submit", async (e) => {
       "I found the tutorial on YouTube for developing the front end of a page made in React for beginners, and then I followed the tutorial to create it..": 
       "I found the tutorial on YouTube for developing the front end of a page made in React for beginners, and then I followed the tutorial to create it..",
       "Escuela de gastronomía": "Gastronomy School",
-      "I created this project by following the principles from a tutorial, and then I customized it to ultimately turn it into an option for developing the front end of a school..": 
-      "I created this project by following the principles from a tutorial, and then I customized it to ultimately turn it into an option for developing the front end of a school..",
+      "Creé este proyecto siguiendo los principios de un tutorial, y luego lo personalicé para convertirlo finalmente en una opción para desarrollar el front end de una escuela.": 
+      "I created this project by following the principles from a tutorial, and then I customized it to ultimately turn it into an option for developing the front end of a school.",
       
       // Back-end projects
       "Back-endprojects": "Back-end projects",
@@ -494,8 +495,8 @@ form.addEventListener("submit", async (e) => {
       "I found the tutorial on YouTube for developing the front end of a page made in React for beginners, and then I followed the tutorial to create it..": 
       "Encontré el tutorial en YouTube para desarrollar el front end de una página hecha en React para principiantes, y luego seguí el tutorial para crearla.",
       "Escuela de gastronomía": "Escuela de gastronomía",
-      "I created this project by following the principles from a tutorial, and then I customized it to ultimately turn it into an option for developing the front end of a school..": 
-      "Creé este proyecto siguiendo los principios de un tutorial, and then I customized it to ultimately turn it into an option for developing the front end of a school..",
+      "Creé este proyecto siguiendo los principios de un tutorial, y luego lo personalicé para convertirlo finalmente en una opción para desarrollar el front end de una escuela.": 
+      "Creé este proyecto siguiendo los principios de un tutorial, y luego lo personalicé para convertirlo finalmente en una opción para desarrollar el front end de una escuela.",
       
       // Back-end projects
       "Back-endprojects": "Proyectos Back-end",
@@ -538,6 +539,21 @@ form.addEventListener("submit", async (e) => {
     
     // Actualizar los textos en tiempo real
     updateTexts(lang);
+    
+    // Actualizar el enlace del currículum según el idioma
+    updateResumeLink(lang);
+  }
+
+  // Función para actualizar el enlace del currículum
+  function updateResumeLink(lang) {
+    const resumeLink = document.getElementById('resume-link');
+    if (resumeLink) {
+      if (lang === 'es') {
+        resumeLink.href = 'docs/Curriculum-servicio-a-la-clientela.pdf';
+      } else {
+        resumeLink.href = 'docs/Resume.updated.AlonsoEdgar(1).pdf';
+      }
+    }
   }
 
   // Función para actualizar todos los textos
@@ -636,6 +652,7 @@ form.addEventListener("submit", async (e) => {
     const savedLanguage = localStorage.getItem('selectedLanguage');
     if (savedLanguage) {
       updateTexts(savedLanguage);
+      updateResumeLink(savedLanguage);
     } else {
       // Establecer un idioma predeterminado si no hay ninguno guardado
       const userLang = navigator.language || navigator.userLanguage;
