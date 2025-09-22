@@ -329,7 +329,7 @@
               <p style="font-size: 20px;">I am currently 55 years old and I work as a rideshare driver, but for the past couple of years, I have started studying everything related to web development on my own, as I have always been very attracted to design and creativity. It has sparked a special interest in me for Python and especially back-end development, because my imagination encourages me to create functional applications that I might someday be able to market.</p>
               <br><br><br>
                <h3 data-translate="Go to my resume:">Go to my resume:</h3>
-               <a href="#" id="resume-link" target="_blank" data-translate="Get it now">Get it now</a>
+               <a href="docs/Resume.updated.AlonsoEdgar(1).pdf" id="resume-link" target="_blank" data-translate="Get it now">Get it now</a>
             </div> 
  
           </div>
@@ -553,6 +553,9 @@ form.addEventListener("submit", async (e) => {
       } else {
         resumeLink.href = 'docs/Resume.updated.AlonsoEdgar(1).pdf';
       }
+      console.log('Enlace actualizado a:', resumeLink.href, 'para idioma:', lang);
+    } else {
+      console.error('No se encontró el enlace del currículum con ID resume-link');
     }
   }
 
@@ -661,57 +664,8 @@ form.addEventListener("submit", async (e) => {
     }
   }
 
-  // Asignar atributos data-translate a los elementos que necesitan traducción
-  function prepareElementsForTranslation() {
-    // Obtener todos los textos únicos que necesitan traducción
-    const uniqueTexts = new Set();
-    
-    // Agregar manualmente los elementos que necesitan traducción
-    const elements = document.querySelectorAll('a, h1, h2, h3, h4, p, span, button, label');
-    
-    elements.forEach(element => {
-      const text = element.textContent.trim();
-      if (text && !element.hasAttribute('data-translate')) {
-        // Crear una clave única para la traducción
-        const key = text.replace(/<br>/g, '').replace(/\s+/g, ' ').trim();
-        element.setAttribute('data-translate', key);
-        uniqueTexts.add(key);
-      }
-    });
-    
-    // Agregar placeholders de inputs
-    const inputs = document.querySelectorAll('input, textarea');
-    inputs.forEach(input => {
-      const placeholder = input.getAttribute('placeholder');
-      if (placeholder && !input.hasAttribute('data-translate')) {
-        input.setAttribute('data-translate', placeholder);
-        uniqueTexts.add(placeholder);
-      }
-    });
-    
-    // Agregar valores de botones
-    const buttons = document.querySelectorAll('button');
-    buttons.forEach(button => {
-      const value = button.textContent.trim();
-      if (value && !button.hasAttribute('data-translate')) {
-        button.setAttribute('data-translate', value);
-        uniqueTexts.add(value);
-      }
-    });
-    
-    // Verificar si hay textos en las traducciones que no están en el DOM
-    for (const lang in translations) {
-      for (const key in translations[lang]) {
-        if (!uniqueTexts.has(key)) {
-          console.warn(`Texto no encontrado en el DOM pero presente en traducciones: ${key}`);
-        }
-      }
-    }
-  }
-
   // Inicializar la funcionalidad de idioma
   function initLanguage() {
-    prepareElementsForTranslation();
     createLanguageSelector();
   }
 
