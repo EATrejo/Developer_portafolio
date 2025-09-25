@@ -330,6 +330,16 @@ p {
     text-shadow: 0 3px 8px rgba(0, 0, 0, 0.8), 0 6px 15px rgba(0, 0, 0, 0.5);
 }
 
+/* ACTUALIZACIÓN: Aplicar mismas propiedades a .subtitulo */
+.subtitulo {
+    color: white;
+    font-size: 38px;
+    text-align: center;
+    margin: 50px 0;
+    padding: 30px;
+    text-shadow: 0 3px 8px rgba(0, 0, 0, 0.8), 0 6px 15px rgba(0, 0, 0, 0.5);
+}
+
 .lightning {
     position: absolute;
     top: 15vh; /* Mantener una altura proporcional */
@@ -503,6 +513,9 @@ p {
     .back-end-title {
         font-size: 20px; /* Ajusta el tamaño del título según sea necesario */
     }
+    .subtitulo {
+        font-size: 20px; /* Ajusta el tamaño del título según sea necesario */
+    }
 }
 
 
@@ -554,10 +567,16 @@ button:hover {
     .back-end-title {
         font-size: 36px;
     }
+    .subtitulo {
+        font-size: 36px;
+    }
 }
 
 @media (max-width: 1024px) {
     .back-end-title {
+        font-size: 32px;
+    }
+    .subtitulo {
         font-size: 32px;
     }
 }
@@ -566,16 +585,25 @@ button:hover {
     .back-end-title {
         font-size: 28px;
     }
+    .subtitulo {
+        font-size: 28px;
+    }
 }
 
 @media (max-width: 480px) {
     .back-end-title {
         font-size: 24px;
     }
+    .subtitulo {
+        font-size: 24px;
+    }
 }
 
 @media (max-width: 320px) {
     .back-end-title {
+        font-size: 20px;
+    }
+    .subtitulo {
         font-size: 20px;
     }
 }
@@ -593,6 +621,7 @@ button:hover {
 
 /* Nuestro servicio */
 
+/* ELIMINADO: Propiedades específicas de .subtitulo que lo hacían diferente
 .subtitulo {
   text-align: center;
   font-weight: 300;
@@ -600,6 +629,8 @@ button:hover {
   margin-bottom: 10px;
   font-size: 20px;
 }
+*/
+
 /*
 .contenedor-servicio {
   display: flex;
