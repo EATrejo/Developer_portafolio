@@ -58,12 +58,14 @@
         background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 30" width="60" height="30"><clipPath id="s"><path d="M0,0 v30 h60 v-30 z"/></clipPath><g clip-path="url(%23s)"><path d="M0,0 v30 h60 v-30 z" fill="%23aa151b"/><path d="M0,0 h20 v30 h-20 z" fill="%23f1bf00"/><path d="M40,0 h20 v30 h-20 z" fill="%23f1bf00"/></g></svg>');
       }
       
-      /* Uniformidad en títulos */
+      /* Uniformidad en títulos - SOLUCIÓN DIRECTA */
       .back-end-title, .subtitulo {
         font-size: 38px;
         text-align: center;
         margin: 50px 0;
         padding: 30px;
+        color: white;
+        text-shadow: 0 3px 8px rgba(0, 0, 0, 0.8), 0 6px 15px rgba(0, 0, 0, 0.5);
       }
     </style>
   </head>
@@ -101,7 +103,7 @@
         <div class="proyectos-contenedor">
             <div class="tarjeta-proyecto">
               <video width="640" height="360" loop autoplay>
-                <source src="images/nueva-imagen-xopstore.png" type="">
+                <source src="images/2025-03-17-17-37-36.mp4" type="video/mp4">
               </video>
                 <div class="contenido-tarjeta">
                     <h4 data-key="projects.xopstore.title">XopStore</h4>
@@ -278,7 +280,8 @@
       </section>
       
       <section class="contenedor" id="expertos">
-        <h2 class="subtitulo" data-key="techstack.title">TECH STACK</h2>
+        <!-- CAMBIO IMPORTANTE: Agregar clase back-end-title al subtitulo -->
+        <h2 class="subtitulo back-end-title" data-key="techstack.title">TECH STACK</h2>
         <section class="experts">
           <div class="container_tarjetas">
             <div class="card"><img src="https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png" alt="JavaScript Logo"><h3>JavaScript</h3></div>

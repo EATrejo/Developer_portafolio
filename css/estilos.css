@@ -319,19 +319,8 @@ p {
     overflow: hidden; /* Evita desbordamiento */
 }
 
-.back-end-title {
-    color: white;
-    font-size: 38px;
-    text-align: center;
-    z-index: 3; /* Mantener el título en frente */
-    position: relative;
-    margin: 35px 0 0; /* Añade 15px de margen superior para moverlo hacia abajo */
-    transform: translateY(-20px); /* Este valor lo puedes ajustar o eliminar si lo prefieres */
-    text-shadow: 0 3px 8px rgba(0, 0, 0, 0.8), 0 6px 15px rgba(0, 0, 0, 0.5);
-}
-
-/* ACTUALIZACIÓN: Aplicar mismas propiedades a .subtitulo */
-.subtitulo {
+/* ESTILOS UNIFICADOS PARA TODOS LOS TÍTULOS DE SECCIÓN */
+.back-end-title, .subtitulo.back-end-title {
     color: white;
     font-size: 38px;
     text-align: center;
@@ -370,7 +359,6 @@ p {
     z-index: 4; /* Se posiciona entre el cerebro y el título */
     animation: flash 2.5s infinite alternate, breathe 10s infinite; /* Aplicar ambas animaciones */
 }
-
 
 @keyframes flash {
     0% {
@@ -420,6 +408,7 @@ p {
         top: 20vh; /* Mantiene la posición proporcional */
     }
 }
+
 /* SECCION FOOTER */
 .contact-footer {
     background-color: rgba(0, 0, 0, 0.7); /* Fondo negro deslavado */
@@ -461,7 +450,6 @@ p {
     font-size: 14px; /* Tamaño del texto para las etiquetas */
     text-align: center; /* Alinear etiquetas al centro */
 }
-
 
 .info {
     display: none; /* Oculta la información inicialmente */
@@ -510,15 +498,10 @@ p {
 }
 
 @media (max-width: 320px) {
-    .back-end-title {
-        font-size: 20px; /* Ajusta el tamaño del título según sea necesario */
-    }
-    .subtitulo {
+    .back-end-title, .subtitulo.back-end-title {
         font-size: 20px; /* Ajusta el tamaño del título según sea necesario */
     }
 }
-
-
 
 .contact-title {
     margin-bottom: 70px; /* Espacio debajo del título */
@@ -560,50 +543,33 @@ button:hover {
     }
 }
 
-
-
 /* Media queries para estilos responsivos */
 @media (max-width: 1200px) {
-    .back-end-title {
-        font-size: 36px;
-    }
-    .subtitulo {
+    .back-end-title, .subtitulo.back-end-title {
         font-size: 36px;
     }
 }
 
 @media (max-width: 1024px) {
-    .back-end-title {
-        font-size: 32px;
-    }
-    .subtitulo {
+    .back-end-title, .subtitulo.back-end-title {
         font-size: 32px;
     }
 }
 
 @media (max-width: 768px) {
-    .back-end-title {
-        font-size: 28px;
-    }
-    .subtitulo {
+    .back-end-title, .subtitulo.back-end-title {
         font-size: 28px;
     }
 }
 
 @media (max-width: 480px) {
-    .back-end-title {
-        font-size: 24px;
-    }
-    .subtitulo {
+    .back-end-title, .subtitulo.back-end-title {
         font-size: 24px;
     }
 }
 
 @media (max-width: 320px) {
-    .back-end-title {
-        font-size: 20px;
-    }
-    .subtitulo {
+    .back-end-title, .subtitulo.back-end-title {
         font-size: 20px;
     }
 }
@@ -617,45 +583,7 @@ button:hover {
     padding-bottom: 0;
 }
 
-
-
 /* Nuestro servicio */
-
-/* ELIMINADO: Propiedades específicas de .subtitulo que lo hacían diferente
-.subtitulo {
-  text-align: center;
-  font-weight: 300;
-  color: #9f8ad0;
-  margin-bottom: 10px;
-  font-size: 20px;
-}
-*/
-
-/*
-.contenedor-servicio {
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
-  flex-wrap: wrap;
-}
-
-.contenedor-servicio img {
-  width: 40%;
-}
-
-.checklist-servicio {
-  width: 45%;
-}
-
-.service {
-  margin-bottom: 20px;
-}
-
-.n-service {
-  margin-bottom: 7px;
-  color: #9f8ad0;
-}
-*/
 .container {
   display: flex;
   align-items: stretch; /* Alinear las columnas para que tengan la misma altura */
@@ -700,25 +628,16 @@ h2 {
   text-align: center; /* Centrar los títulos */
 }
 
-
 .left-align {
   text-align: left; /* Alinear completamente a la izquierda */
   width: 100%; /* Asegura que el párrafo ocupe el ancho completo de la columna */
   margin-bottom: 10px; /* Margen inferior de 3 píxeles */
-
-
 }
-
-
-
 
 p {
   margin: 0;
   text-align: justify; /* Justificar el texto */
 }
-
-
-
 
 /* Medios Query para Responsividad */
 @media (max-width: 768px) {
@@ -745,7 +664,6 @@ p {
   margin: 0; /* Eliminamos los márgenes */
   padding: 20px; /* Puedes ajustar el padding según lo necesites */
 }
-
 
 .card {
   background-color: #fff;
@@ -780,7 +698,6 @@ p {
   background-color: #e0f7fa; /* Color de fondo al hacer hover */
 }
 
-
 @media (max-width: 768px) {
   .card {
       width: 80%; /* Responsivo para pantallas más pequeñas */
@@ -792,9 +709,6 @@ p {
       align-items: center;
   }
 }
-
-
-
 
 .number {
   display: inline-block;
@@ -867,7 +781,6 @@ p {
 }
 
 /* experts */
-
 .experts {
   display: flex;
   justify-content: space-evenly;
@@ -895,10 +808,6 @@ p {
 }
 
 /* footer */
-
-
-
-
 
 @media screen and (max-width: 800px) {
   .menu-navegacion {
@@ -972,7 +881,7 @@ p {
     font-size: 30px;
   }
 
-  .subtitulo {
+  .subtitulo.back-end-title {
     font-size: 30px;
   }
 
