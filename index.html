@@ -67,6 +67,13 @@
         color: white;
         text-shadow: 0 3px 8px rgba(0, 0, 0, 0.8), 0 6px 15px rgba(0, 0, 0, 0.5);
       }
+
+      /* Estilos para el logo combinado de Git y GitHub */
+      .git-github-logo {
+        width: 80px;
+        height: 80px;
+        object-fit: contain;
+      }
     </style>
   </head>
   <body>
@@ -290,8 +297,12 @@
             <div class="card"><img src="images/Django-Logo.png" alt="SQL Logo"><h3>Django</h3></div>
             <div class="card"><img src="images/sql_ejercicios.png" alt="Django Logo"><h3>SQL</h3></div>
             <div class="card"><img src="https://cdn.worldvectorlogo.com/logos/postman.svg" alt="Postman Logo"><h3>Postman</h3></div>
-            <!-- NUEVO: Logo combinado de Git y GitHub -->
-            <div class="card"><img src="https://cdn.worldvectorlogo.com/logos/git-github.svg" alt="Git and GitHub Logo"><h3>Git & GitHub</h3></div>
+            <!-- NUEVO: Logo combinado de Git y GitHub - FUENTES CORREGIDAS -->
+            <div class="card">
+              <img src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/git/git.png" 
+                   alt="Git and GitHub Logo" class="git-github-logo">
+              <h3>Git & GitHub</h3>
+            </div>
             <div class="card"><img src="https://www.django-rest-framework.org/img/logo.png" alt="Django REST Framework Logo"><h3>Django REST Framework</h3></div>
           </div>
         </section>
